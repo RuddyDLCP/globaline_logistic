@@ -15,6 +15,7 @@
 </head>
 <body>
    
+    <!-- Header Section -->
     <header>
         <div class="header-container">
             <a href="#home" class="logo-link">
@@ -31,7 +32,6 @@
                     <li><a href="#services">Servicios</a></li>
                     <li><a href="#about">Sobre Nosotros</a></li>
                     <li><a href="#mvv">Nosotros</a></li>
-                    <li><a href="#partners">Socios</a></li>
                     <li><a href="#faq">Preguntas Frecuentes</a></li>
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
@@ -44,524 +44,234 @@
         </div>
     </header>
 
-   <!-- Hero Section -->
-   <section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Soluciones Logísticas Integrales para su Negocio</h1>
-        <p class="hero-tagline">"Moviendo tu negocio globalmente"</p>
-        
-        <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Cotizar Ahora</a>
-            <a href="#services" class="btn btn-outline">Ver Servicios</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Soluciones Logísticas Integrales para su Negocio</h1>
+            <p class="hero-tagline">"Moviendo tu negocio globalmente"</p>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Cotizar Ahora</a>
+                <a href="#services" class="btn btn-outline">Ver Servicios</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Tracking Section -->
-<section class="tracking">
-    <div class="tracking-container">
-        <h2>Seguimiento de Envíos</h2>
-        <form class="tracking-form">
-            <input type="text" placeholder="Ingrese su número de seguimiento" aria-label="Número de seguimiento">
-            <button type="submit" class="btn btn-primary">Rastrear</button>
-        </form>
-    </div>
-</section>
+    <!-- Tracking Section -->
+    <section class="tracking">
+        <div class="tracking-container">
+            <h2>Seguimiento de Envíos</h2>
+            <form class="tracking-form">
+                <input type="text" placeholder="Ingrese su número de seguimiento" aria-label="Número de seguimiento">
+                <button type="submit" class="btn btn-primary">Rastrear</button>
+            </form>
+        </div>
+    </section>
 
-  <!-- Services Section -->
-<section class="services" id="services">
-    <div class="services-container">
-        <h2>Nuestros Servicios</h2>
-        <div class="services-grid">
-            <!-- Transporte de Mercancías -->
-            <div class="service-card">
-                <div class="service-card-icon">
-                    <i class="fas fa-truck" aria-hidden="true"></i>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <!-- Transporte de Mercancías -->
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <i class="fas fa-truck" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Transporte de Mercancías</h3>
+                        <p>Coordinación de transporte terrestre profesional, asegurando entregas puntuales y seguras dentro de la República Dominicana con seguimiento en tiempo real.</p>
+                        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-transporte">Más Información</a>
+                    </div>
                 </div>
-                <div class="service-card-content">
-                    <h3>Transporte de Mercancías</h3>
-                    <p>Coordinación de transporte terrestre profesional, asegurando entregas puntuales y seguras dentro de la República Dominicana con seguimiento en tiempo real.</p>
-                    <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-transporte">Más Información</a>
+                
+                <!-- Almacenamiento -->
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <i class="fas fa-warehouse" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Almacenamiento</h3>
+                        <p>Soluciones de almacenamiento flexibles y seguras, adaptadas a las necesidades específicas de cada cliente, con opciones en diversas ubicaciones estratégicas.</p>
+                        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-almacenamiento">Más Información</a>
+                    </div>
                 </div>
+                
+                <!-- Distribución -->
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <i class="fas fa-boxes" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Distribución</h3>
+                        <p>Gestión integral de la distribución de mercancías desde el punto de origen hasta el destino final, garantizando un flujo eficiente en todo el territorio nacional.</p>
+                        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-distribucion">Más Información</a>
+                    </div>
+                </div>
+                
+                <!-- Gestión de Cadena de Suministro -->
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Gestión de la Cadena de Suministro</h3>
+                        <p>Asesoramiento especializado y herramientas avanzadas para mejorar la visibilidad y eficiencia operativa en toda su cadena de suministro nacional.</p>
+                        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-gestion">Más Información</a>
+                    </div>
+                </div>
+
+                <!-- Almacenamiento Especializado -->
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <i class="fas fa-pallet" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Almacenamiento Especializado</h3>
+                        <p>Soluciones de almacenamiento avanzadas para mercancías que requieren condiciones especiales, incluyendo control de temperatura, humedad y sistemas de seguridad reforzados.</p>
+                        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-almacenamiento-especializado">Más Información</a>
+                    </div>
+                </div>
+                
+                <!-- Logística Personalizada -->
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <i class="fas fa-cogs" aria-hidden="true"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Logística Personalizada</h3>
+                        <p>Soluciones adaptadas a las particularidades de cada sector dentro de la República Dominicana, asegurando el soporte logístico que su negocio necesita.</p>
+                        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-logistica">Más Información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="section-header">
+                <h2>Sobre Nosotros</h2>
+                <p class="section-subtitle">Conectando negocios, superando expectativas</p>
             </div>
             
-            <!-- Almacenamiento -->
-            <div class="service-card">
-                <div class="service-card-icon">
-                    <i class="fas fa-warehouse" aria-hidden="true"></i>
-                </div>
-                <div class="service-card-content">
-                    <h3>Almacenamiento</h3>
-                    <p>Soluciones de almacenamiento flexibles y seguras, adaptadas a las necesidades específicas de cada cliente, con opciones en diversas ubicaciones estratégicas.</p>
-                    <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-almacenamiento">Más Información</a>
-                </div>
-            </div>
-            
-            <!-- Distribución -->
-            <div class="service-card">
-                <div class="service-card-icon">
-                    <i class="fas fa-boxes" aria-hidden="true"></i>
-                </div>
-                <div class="service-card-content">
-                    <h3>Distribución</h3>
-                    <p>Gestión integral de la distribución de mercancías desde el punto de origen hasta el destino final, garantizando un flujo eficiente en todo el territorio nacional.</p>
-                    <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-distribucion">Más Información</a>
-                </div>
-            </div>
-            
-            <!-- Gestión de Cadena de Suministro -->
-            <div class="service-card">
-                <div class="service-card-icon">
-                    <i class="fas fa-clipboard-check" aria-hidden="true"></i>
-                </div>
-                <div class="service-card-content">
-                    <h3>Gestión de la Cadena de Suministro</h3>
-                    <p>Asesoramiento especializado y herramientas avanzadas para mejorar la visibilidad y eficiencia operativa en toda su cadena de suministro nacional.</p>
-                    <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-gestion">Más Información</a>
-                </div>
-            </div>
-
-            <!-- Sexto servicio: Soluciones de Almacenamiento Especializado -->
-<div class="service-card">
-    <div class="service-card-icon">
-        <i class="fas fa-pallet" aria-hidden="true"></i>
-    </div>
-    <div class="service-card-content">
-        <h3>Almacenamiento Especializado</h3>
-        <p>Soluciones de almacenamiento avanzadas para mercancías que requieren condiciones especiales, incluyendo control de temperatura, humedad y sistemas de seguridad reforzados.</p>
-        <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-almacenamiento-especializado">Más Información</a>
-    </div>
-</div>
-
-            
-            <!-- Logística Personalizada -->
-            <div class="service-card">
-                <div class="service-card-icon">
-                    <i class="fas fa-cogs" aria-hidden="true"></i>
-                </div>
-                <div class="service-card-content">
-                    <h3>Logística Personalizada</h3>
-                    <p>Soluciones adaptadas a las particularidades de cada sector dentro de la República Dominicana, asegurando el soporte logístico que su negocio necesita.</p>
-                    <a href="#" class="btn btn-outline modal-trigger" data-modal="modal-logistica">Más Información</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</section>
-
-<!-- Modal Transporte de Mercancías -->
-<div id="modal-transporte" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Transporte de Mercancías</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Nuestro servicio de transporte terrestre ofrece soluciones logísticas completas para envíos dentro de la República Dominicana, garantizando puntualidad y seguridad en cada entrega.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <div>
-                            <h4>Cobertura Nacional Completa</h4>
-                            <p>Red de transporte que cubre todo el territorio dominicano con rutas optimizadas.</p>
-                        </div>
+            <div class="about-content">
+                <div class="about-image-container">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo de Globaline Logistic trabajando" class="about-main-image">
+                        <div class="image-overlay"></div>
                     </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Entregas Puntuales</h4>
-                            <p>Compromiso con los tiempos de entrega acordados y seguimiento en tiempo real.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <h4>Seguridad Garantizada</h4>
-                            <p>Vehículos equipados con los más altos estándares de seguridad y conductores certificados.</p>
+                    <div class="about-badge">
+                        <div class="badge-content">
+                            <span class="badge-number">10+</span>
+                            <span class="badge-text">Años de experiencia</span>
                         </div>
                     </div>
                 </div>
                 
-                <h4>Beneficios Clave</h4>
-                <ul class="modal-benefits">
-                    <li>Coordinación profesional de toda la cadena de transporte</li>
-                    <li>Flota moderna y mantenida periódicamente</li>
-                    <li>Seguro de carga incluido en todos los envíos</li>
-                    <li>Soporte logístico 24/7 para emergencias</li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Solicitar Cotización</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Almacenamiento -->
-<div id="modal-almacenamiento" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Soluciones de Almacenamiento</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Ofrecemos espacios de almacenamiento flexibles y seguros, adaptados a las necesidades específicas de cada cliente en ubicaciones estratégicas del país.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-lock"></i>
-                        <div>
-                            <h4>Seguridad Avanzada</h4>
-                            <p>Sistemas de vigilancia 24/7, control de acceso y protección contra incendios.</p>
+                <div class="about-text-content">
+                    <div class="text-content-wrapper">
+                        <h3>Su socio logístico estratégico</h3>
+                        <div class="about-description">
+                            <p>En <strong>Globaline Logistic</strong>, hemos construido una reputación sólida como proveedor líder de soluciones logísticas integrales en la República Dominicana. Nuestra pasión por la excelencia operativa y nuestro compromiso con la satisfacción del cliente nos han permitido crecer hasta convertirnos en un referente del sector.</p>
+                            
+                            <p>Fundada en 2013, nuestra empresa ha evolucionado constantemente, adoptando tecnologías innovadoras y ampliando nuestra red de operaciones para ofrecer servicios que realmente marcan la diferencia en la cadena de suministro de nuestros clientes.</p>
                         </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-thermometer-half"></i>
-                        <div>
-                            <h4>Control de Clima</h4>
-                            <p>Opciones de almacenamiento refrigerado para productos sensibles a la temperatura.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-box-open"></i>
-                        <div>
-                            <h4>Gestión de Inventario</h4>
-                            <p>Sistemas digitales para el seguimiento preciso de sus existencias.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Opciones Disponibles</h4>
-                <div class="modal-options">
-                    <div class="modal-option">
-                        <h5>Almacenamiento a Corto Plazo</h5>
-                        <p>Ideal para necesidades temporales o estacionales con contratos flexibles.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Almacenamiento a Largo Plazo</h5>
-                        <p>Soluciones económicas para almacenamiento prolongado con descuentos por volumen.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Centros de Distribución</h5>
-                        <p>Ubicaciones estratégicas para optimizar sus operaciones de logística.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Consultar Disponibilidad</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Distribución -->
-<div id="modal-distribucion" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Gestión de Distribución</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Gestión integral de la distribución de mercancías desde el punto de origen hasta el destino final, garantizando un flujo eficiente en todo el territorio nacional.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-route"></i>
-                        <div>
-                            <h4>Optimización de Rutas</h4>
-                            <p>Tecnología avanzada para planificar las rutas más eficientes.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <div>
-                            <h4>Entrega Just-in-Time</h4>
-                            <p>Sincronización perfecta con sus procesos productivos.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-map-pin"></i>
-                        <div>
-                            <h4>Última Milla</h4>
-                            <p>Soluciones especializadas para la etapa final de distribución.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Nuestro Enfoque</h4>
-                <div class="modal-process">
-                    <div class="process-step">
-                        <span>1</span>
-                        <p>Planificación estratégica de la red de distribución</p>
-                    </div>
-                    <div class="process-step">
-                        <span>2</span>
-                        <p>Implementación de tecnología de seguimiento</p>
-                    </div>
-                    <div class="process-step">
-                        <span>3</span>
-                        <p>Ejecución con equipos especializados</p>
-                    </div>
-                    <div class="process-step">
-                        <span>4</span>
-                        <p>Monitoreo y mejora continua</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Optimizar mi Distribución</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Gestión de la Cadena de Suministro -->
-<div id="modal-gestion" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Gestión de la Cadena de Suministro</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Ofrecemos asesoramiento especializado y herramientas avanzadas para mejorar la visibilidad y eficiencia operativa en toda su cadena de suministro nacional.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-chart-line"></i>
-                        <div>
-                            <h4>Análisis de Datos</h4>
-                            <p>Herramientas de análisis para identificar oportunidades de mejora en su cadena de suministro.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-sync-alt"></i>
-                        <div>
-                            <h4>Optimización de Procesos</h4>
-                            <p>Reingeniería de procesos para aumentar la eficiencia y reducir costos operativos.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-project-diagram"></i>
-                        <div>
-                            <h4>Integración de Sistemas</h4>
-                            <p>Conexión de todos los eslabones de la cadena para una gestión unificada y transparente.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Servicios Incluidos</h4>
-                <ul class="modal-benefits">
-                    <li>Consultoría especializada en optimización de la cadena de suministro</li>
-                    <li>Implementación de KPIs y dashboards de rendimiento</li>
-                    <li>Capacitación del personal en mejores prácticas logísticas</li>
-                    <li>Auditorías periódicas para identificar áreas de mejora</li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Solicitar Análisis</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Logística Personalizada -->
-<div id="modal-logistica" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Logística Personalizada</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Desarrollamos soluciones adaptadas a las particularidades de cada sector dentro de la República Dominicana, asegurando que cada cliente reciba el soporte logístico específico que su negocio necesita.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-user-cog"></i>
-                        <div>
-                            <h4>Soluciones a Medida</h4>
-                            <p>Diseñamos estrategias logísticas adaptadas a los requerimientos únicos de su empresa.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-industry"></i>
-                        <div>
-                            <h4>Enfoque Sectorial</h4>
-                            <p>Especialistas en la logística específica de diversos sectores: retail, farmacéutico, industrial, etc.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-handshake"></i>
-                        <div>
-                            <h4>Relaciones a Largo Plazo</h4>
-                            <p>Nos convertimos en un socio estratégico, comprometido con el crecimiento de su empresa.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Sectores que Atendemos</h4>
-                <div class="modal-sectors">
-                    <div class="modal-sector">
-                        <h5>Sector Alimentario</h5>
-                        <p>Transporte refrigerado y gestión de cadena de frío para productos perecederos.</p>
-                    </div>
-                    <div class="modal-sector">
-                        <h5>Sector Farmacéutico</h5>
-                        <p>Cumplimiento de normativas y manejo especializado de productos médicos y farmacéuticos.</p>
-                    </div>
-                    <div class="modal-sector">
-                        <h5>Sector Retail</h5>
-                        <p>Soluciones para el abastecimiento eficiente de tiendas y gestión de picos estacionales.</p>
-                    </div>
-                    <div class="modal-sector">
-                        <h5>Sector Industrial</h5>
-                        <p>Transporte de carga pesada y gestión de materias primas para procesos productivos.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Consultar Opciones</a>
-        </div>
-    </div>
-</div>
-
-<!-- About Section - Versión con altura de imagen ajustada perfectamente -->
-<section class="about" id="about">
-    <div class="about-container">
-        <div class="section-header">
-            <h2>Sobre Nosotros</h2>
-            <p class="section-subtitle">Conectando negocios, superando expectativas</p>
-        </div>
-        
-        <div class="about-content">
-            <div class="about-image-container">
-                <div class="about-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo de Globaline Logistic trabajando" class="about-main-image">
-                    <div class="image-overlay"></div>
-                </div>
-                <div class="about-badge">
-                    <div class="badge-content">
-                        <span class="badge-number">10+</span>
-                        <span class="badge-text">Años de experiencia</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-text-content">
-                <div class="text-content-wrapper">
-                    <h3>Su socio logístico estratégico</h3>
-                    <div class="about-description">
-                        <p>En <strong>Globaline Logistic</strong>, hemos construido una reputación sólida como proveedor líder de soluciones logísticas integrales en la República Dominicana. Nuestra pasión por la excelencia operativa y nuestro compromiso con la satisfacción del cliente nos han permitido crecer hasta convertirnos en un referente del sector.</p>
                         
-                        <p>Fundada en 2013, nuestra empresa ha evolucionado constantemente, adoptando tecnologías innovadoras y ampliando nuestra red de operaciones para ofrecer servicios que realmente marcan la diferencia en la cadena de suministro de nuestros clientes.</p>
-                    </div>
-                    
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-globe-americas"></i>
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Cobertura Nacional</h4>
+                                    <p>Operaciones en toda la República Dominicana con centros logísticos estratégicos</p>
+                                </div>
                             </div>
-                            <div class="feature-text">
-                                <h4>Cobertura Nacional</h4>
-                                <p>Operaciones en toda la República Dominicana con centros logísticos estratégicos</p>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Seguridad Garantizada</h4>
+                                    <p>Protocolos rigurosos y tecnología avanzada para proteger su mercancía</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
+                        <div class="about-stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Clientes satisfechos</span>
                             </div>
-                            <div class="feature-text">
-                                <h4>Seguridad Garantizada</h4>
-                                <p>Protocolos rigurosos y tecnología avanzada para proteger su mercancía</p>
+                            <div class="stat-item">
+                                <span class="stat-number">25K+</span>
+                                <span class="stat-label">Envíos anuales</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Tasa de satisfacción</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="about-stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Clientes satisfechos</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">25K+</span>
-                            <span class="stat-label">Envíos anuales</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Tasa de satisfacción</span>
-                        </div>
+                    <div class="about-button-container">
+                        <a href="#contact" class="btn btn-primary btn-about">
+                            <i class="fas fa-paper-plane"></i> Contáctenos
+                        </a>
                     </div>
-                </div>
-                
-                <div class="about-button-container">
-                    <a href="#contact" class="btn btn-primary btn-about">
-                        <i class="fas fa-paper-plane"></i> Contáctenos
-                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- MVV Section - Diseño Premium -->
-<section class="mvv-premium" id="mvv">
-    <div class="mvv-premium-container">
-        <div class="section-header">
-            <h2>Nuestros Pilares Fundamentales</h2>
-            <p class="section-subtitle">Los principios que guían cada decisión y acción en Globaline Logistic</p>
-        </div>
-        
-        <div class="mvv-premium-grid">
-            <!-- Misión -->
-            <div class="mvv-card mission-card">
-                <div class="card-ornament"></div>
-                <div class="card-content">
-                    <div class="card-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Misión</h3>
-                    <div class="card-text">
-                        <p>Proveer servicios logísticos de <strong>alta calidad</strong>, optimizando el transporte de mercancías para empresas de diversos sectores mediante soluciones personalizadas y tecnología de vanguardia.</p>
-                    </div>
-                    <div class="mission-decoration">
-                        <svg viewBox="0 0 100 100" class="mission-svg">
-                            <path d="M10,50 Q50,10 90,50 Q50,90 10,50" fill="none" stroke="rgba(92, 225, 230, 0.2)" stroke-width="2"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Visión -->
-            <div class="mvv-card vision-card">
-                <div class="card-ornament"></div>
-                <div class="card-content">
-                    <div class="card-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Visión</h3>
-                    <div class="card-text">
-                        <p>Convertirnos en <strong>líderes regionales</strong> en logística y transporte, ofreciendo soluciones eficientes, innovadoras y accesibles que transformen la cadena de suministro de nuestros clientes.</p>
-                    </div>
-                    <div class="vision-decoration">
-                        <div class="vision-line"></div>
-                    </div>
-                </div>
+    <!-- MVV Section -->
+    <section class="mvv-premium" id="mvv">
+        <div class="mvv-premium-container">
+            <div class="section-header">
+                <h2>Nuestros Pilares Fundamentales</h2>
+                <p class="section-subtitle">Los principios que guían cada decisión y acción en Globaline Logistic</p>
             </div>
             
             <div class="mvv-premium-grid">
+                <!-- Misión -->
+                <div class="mvv-card mission-card">
+                    <div class="card-ornament"></div>
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Misión</h3>
+                        <div class="card-text">
+                            <p>Proveer servicios logísticos de <strong>alta calidad</strong>, optimizando el transporte de mercancías para empresas de diversos sectores mediante soluciones personalizadas y tecnología de vanguardia.</p>
+                        </div>
+                        <div class="mission-decoration">
+                            <svg viewBox="0 0 100 100" class="mission-svg">
+                                <path d="M10,50 Q50,10 90,50 Q50,90 10,50" fill="none" stroke="rgba(92, 225, 230, 0.2)" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visión -->
+                <div class="mvv-card vision-card">
+                    <div class="card-ornament"></div>
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Visión</h3>
+                        <div class="card-text">
+                            <p>Convertirnos en <strong>líderes regionales</strong> en logística y transporte, ofreciendo soluciones eficientes, innovadoras y accesibles que transformen la cadena de suministro de nuestros clientes.</p>
+                        </div>
+                        <div class="vision-decoration">
+                            <div class="vision-line"></div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Valores -->
                 <div class="mvv-card values-card">
                     <div class="card-ornament"></div>
@@ -617,482 +327,806 @@
         </div>
     </section>
 
-<!-- Contact Section - Versión Modificada -->
-<section class="contact" id="contact">
-    <div class="contact-container">
-        <h2>Contáctenos</h2>
-        <div class="contact-content">
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Asunto</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                </form>
-            </div>
-            <div class="contact-info">
-                <h3>Información de Contacto</h3>
-                <div class="contact-info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Dirección</h4>
-                        <p>G2C4+QR Pantoja, San José Fe Y Alegría<br>Calle Cultura 99, Pantoja</p>
-                    </div>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Contáctenos</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
                 </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h4>Teléfono</h4>
-                        <p>+1 (809) 555-7890</p>
-                    </div>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>info@globalinelogistic.com</p>
-                    </div>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h4>Horario de Atención</h4>
-                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                        <p>Sábados: 9:00 AM - 1:00 PM</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Map Section - Nueva Sección Separada -->
-<section class="map-section">
-    <div class="map-container">
-        <h2>Nuestra Ubicación</h2>
-        <div class="map-wrapper">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.267292683434!2d-70.0128899242696!3d18.52038298255839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89c0e1e1e1e1%3A0x1e1e1e1e1e1e1e1!2sCalle%20Cultura%2099%2C%20Pantoja!5e0!3m2!1sen!2sdo!4v1620000000000!5m2!1sen!2sdo" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div class="map-address">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>G2C4+QR Pantoja, San José Fe Y Alegría, Calle Cultura 99, Pantoja</p>
-        </div>
-    </div>
-</section>
-
-<!-- Modales Legales -->
-<div id="terms-modal" class="legal-modal">
-    <div class="legal-modal-content">
-        <div class="legal-modal-header">
-            <h3>Términos de Servicio</h3>
-            <button class="legal-modal-close">&times;</button>
-        </div>
-        <div class="legal-modal-body">
-            <h4>1. Aceptación de los Términos</h4>
-            <p>Este sitio web fue desarrollado por Ruddy De La Cruz Pérez. Al acceder y utilizar este sitio, usted acepta cumplir con estos términos de servicio.</p>
-            
-            <h4>2. Propiedad Intelectual</h4>
-            <p>Todos los derechos de propiedad intelectual del diseño, código y contenido de este sitio son propiedad exclusiva de Ruddy De La Cruz Pérez.</p>
-            
-            <h4>3. Uso del Sitio</h4>
-            <p>Queda prohibido cualquier uso no autorizado del contenido, incluyendo reproducción, distribución o modificación sin autorización expresa.</p>
-        </div>
-        <div class="legal-modal-footer">
-            <button class="btn btn-primary legal-modal-close">Entendido</button>
-        </div>
-    </div>
-</div>
-
-   <!-- Modal Transporte de Mercancías -->
-<div id="modal-transporte" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Transporte de Mercancías</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Nuestro servicio de transporte terrestre ofrece soluciones logísticas completas para envíos dentro de la República Dominicana, garantizando puntualidad y seguridad en cada entrega.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-map-marked-alt"></i>
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h4>Cobertura Nacional Completa</h4>
-                            <p>Red de transporte que cubre todo el territorio dominicano con rutas optimizadas.</p>
+                            <h4>Dirección</h4>
+                            <p>G2C4+QR Pantoja, San José Fe Y Alegría<br>Calle Cultura 99, Pantoja</p>
                         </div>
                     </div>
-                    <div class="modal-feature">
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p> (809) 701-2780</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@globalinelogistic.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <h4>Entregas Puntuales</h4>
-                            <p>Compromiso con los tiempos de entrega acordados y seguimiento en tiempo real.</p>
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                            <p>Sábados: 9:00 AM - 1:00 PM</p>
                         </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <h4>Seguridad Garantizada</h4>
-                            <p>Vehículos equipados con los más altos estándares de seguridad y conductores certificados.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Beneficios Clave</h4>
-                <ul class="modal-benefits">
-                    <li>Coordinación profesional de toda la cadena de transporte</li>
-                    <li>Flota moderna y mantenida periódicamente</li>
-                    <li>Seguro de carga incluido en todos los envíos</li>
-                    <li>Soporte logístico 24/7 para emergencias</li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Solicitar Cotización</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Almacenamiento -->
-<div id="modal-almacenamiento" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Soluciones de Almacenamiento</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Ofrecemos espacios de almacenamiento flexibles y seguros, adaptados a las necesidades específicas de cada cliente en ubicaciones estratégicas del país.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-lock"></i>
-                        <div>
-                            <h4>Seguridad Avanzada</h4>
-                            <p>Sistemas de vigilancia 24/7, control de acceso y protección contra incendios.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-thermometer-half"></i>
-                        <div>
-                            <h4>Control de Clima</h4>
-                            <p>Opciones de almacenamiento refrigerado para productos sensibles a la temperatura.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-box-open"></i>
-                        <div>
-                            <h4>Gestión de Inventario</h4>
-                            <p>Sistemas digitales para el seguimiento preciso de sus existencias.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Opciones Disponibles</h4>
-                <div class="modal-options">
-                    <div class="modal-option">
-                        <h5>Almacenamiento a Corto Plazo</h5>
-                        <p>Ideal para necesidades temporales o estacionales con contratos flexibles.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Almacenamiento a Largo Plazo</h5>
-                        <p>Soluciones económicas para almacenamiento prolongado con descuentos por volumen.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Centros de Distribución</h5>
-                        <p>Ubicaciones estratégicas para optimizar sus operaciones de logística.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Consultar Disponibilidad</a>
-        </div>
-    </div>
-</div>
+    </section>
 
-<!-- Modal Distribución -->
-<div id="modal-distribucion" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Gestión de Distribución</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Gestión integral de la distribución de mercancías desde el punto de origen hasta el destino final, garantizando un flujo eficiente en todo el territorio nacional.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-route"></i>
-                        <div>
-                            <h4>Optimización de Rutas</h4>
-                            <p>Tecnología avanzada para planificar las rutas más eficientes.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-tachometer-alt"></i>
-                        <div>
-                            <h4>Entrega Just-in-Time</h4>
-                            <p>Sincronización perfecta con sus procesos productivos.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-map-pin"></i>
-                        <div>
-                            <h4>Última Milla</h4>
-                            <p>Soluciones especializadas para la etapa final de distribución.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Nuestro Enfoque</h4>
-                <div class="modal-process">
-                    <div class="process-step">
-                        <span>1</span>
-                        <p>Planificación estratégica de la red de distribución</p>
-                    </div>
-                    <div class="process-step">
-                        <span>2</span>
-                        <p>Implementación de tecnología de seguimiento</p>
-                    </div>
-                    <div class="process-step">
-                        <span>3</span>
-                        <p>Ejecución con equipos especializados</p>
-                    </div>
-                    <div class="process-step">
-                        <span>4</span>
-                        <p>Monitoreo y mejora continua</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Optimizar mi Distribución</a>
-        </div>
-    </div>
-</div>
-
-<div id="modal-almacenamiento-especializado" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Almacenamiento Especializado</h3>
-            <button class="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="modal-content-inner">
-                <p>Ofrecemos soluciones de almacenamiento avanzadas para productos y mercancías que requieren condiciones específicas, con instalaciones de última generación en ubicaciones estratégicas de la República Dominicana.</p>
-                
-                <div class="modal-features">
-                    <div class="modal-feature">
-                        <i class="fas fa-temperature-low"></i>
-                        <div>
-                            <h4>Control Climático Preciso</h4>
-                            <p>Sistemas avanzados para mantener temperatura y humedad controladas, ideales para productos sensibles.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <h4>Seguridad Reforzada</h4>
-                            <p>Protocolos y tecnología de seguridad de nivel bancario para mercancías de alto valor.</p>
-                        </div>
-                    </div>
-                    <div class="modal-feature">
-                        <i class="fas fa-qrcode"></i>
-                        <div>
-                            <h4>Trazabilidad Total</h4>
-                            <p>Sistemas de seguimiento y gestión de inventario en tiempo real con códigos QR y tecnología RFID.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4>Instalaciones Especializadas</h4>
-                <div class="modal-options">
-                    <div class="modal-option">
-                        <h5>Almacenes Refrigerados</h5>
-                        <p>Control de temperatura entre 2°C y 8°C para productos farmacéuticos y alimentarios perecederos.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Almacenes de Alta Seguridad</h5>
-                        <p>Sistemas de acceso biométrico y vigilancia 24/7 para mercancías de alto valor.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Almacenes para Productos Químicos</h5>
-                        <p>Instalaciones con sistemas de contención y seguridad para productos químicos y peligrosos.</p>
-                    </div>
-                    <div class="modal-option">
-                        <h5>Almacenamiento de Documentos</h5>
-                        <p>Archivo y gestión documental con control de humedad y protección contra incendios.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary modal-close">Cerrar</button>
-            <a href="#contact" class="btn btn-accent">Solicitar Información</a>
-        </div>
-    </div>
-</div>
-
-  <!-- Footer Premium con Funcionalidad -->
-<footer class="footer-premium">
-    <div class="footer-wave">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#519F44"></path>
-            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#519F44"></path>
-            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#519F44"></path>
-        </svg>
-    </div>
-    
-    <div class="footer-container">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="img/logo.jpeg" alt="Globaline Logistic Logo">
-                    <span>Globaline <strong>Logistic</strong></span>
-                </div>
-                <p class="footer-description">Soluciones logísticas innovadoras que conectan tu negocio con el mundo. Fundada por <strong>6toD - Logistica - 2025</strong>, estudiantes con más de 3 años con conocimientos en el sector logístico.</p>
-                <div class="footer-social">
-                    <a href="#" class="social-icon" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-                <!-- Widget de WhatsApp -->
-                <div class="whatsapp-widget" onclick="openWhatsApp()">
-                    <div class="whatsapp-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="whatsapp-text">
-                        <span>¿Necesitas ayuda?</span>
-                        <p>¡Escríbenos por WhatsApp!</p>
-                    </div>
-                </div>
+   <!-- ============ MAP SECTION ============ -->
+<section class="map-section">
+    <div class="map-container">
+        <div class="map-content">
+            <div class="map-wrapper">
+                <iframe class="map-iframe" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.6713640000003!2d-69.9315824!3d18.4724034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626a93e119e1%3A0x9e7a7c1a9d4e1b1f!2sCalle%20Cultura%2099%2C%20Pantoja%2C%20Santo%20Domingo%20Oeste%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    aria-label="Mapa de ubicación de Globaline Logistic en Pantoja">
+                </iframe>
+                <div class="map-overlay"></div>
             </div>
             
-            <div class="footer-columns">
-                <div class="footer-col">
-                    <h4 class="footer-title">Servicios</h4>
-                    <ul class="footer-links">
-                        <li><a href="#services" class="service-link" data-service="transporte"><i class="fas fa-chevron-right"></i> Transporte Terrestre</a></li>
-                        <li><a href="#services" class="service-link" data-service="maritimo"><i class="fas fa-chevron-right"></i> Logística Marítima</a></li>
-                        <li><a href="#services" class="service-link" data-service="aereo"><i class="fas fa-chevron-right"></i> Carga Aérea</a></li>
-                        <li><a href="#services" class="service-link" data-service="almacenamiento"><i class="fas fa-chevron-right"></i> Almacenamiento Inteligente</a></li>
-                        <li><a href="#services" class="service-link" data-service="distribucion"><i class="fas fa-chevron-right"></i> Distribución Nacional</a></li>
-                    </ul>
+            <div class="map-info">
+                <div class="map-info-card">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="map-info-item">
+                        <div class="map-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="map-info-text">
+                            <h4>Dirección Principal</h4>
+                            <p>G2C4+QR Pantoja, San José Fe Y Alegría<br>Calle Cultura 99, Pantoja</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-info-item">
+                        <div class="map-info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="map-info-text">
+                            <h4>Teléfono</h4>
+                            <p>(809) 701-2780</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-info-item">
+                        <div class="map-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="map-info-text">
+                            <h4>Email</h4>
+                            <p>info@globalinelogistic.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-info-item">
+                        <div class="map-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="map-info-text">
+                            <h4>Horario</h4>
+                            <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="footer-col">
-                    <h4 class="footer-title">Empresa</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Nuestra Historia</a></li>
-                        <li><a href="#mvv"><i class="fas fa-chevron-right"></i> Misión y Visión</a></li>
-                        <li><a href="#partners"><i class="fas fa-chevron-right"></i> Socios Estratégicos</a></li>
-                        <li><a href="#" id="show-team-modal"><i class="fas fa-chevron-right"></i> Equipo Directivo</a></li>
-                        <li><a href="#" id="show-careers-modal"><i class="fas fa-chevron-right"></i> Oportunidades Laborales</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4 class="footer-title">Soporte</h4>
-                    <ul class="footer-links">
-                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> Centro de Ayuda</a></li>
-                        <li><a href="mailto:ruddy@globalinelogistic.com"><i class="fas fa-chevron-right"></i> Escríbenos</a></li>
-                        <li><a href="#" onclick="openWhatsApp()"><i class="fas fa-chevron-right"></i> Soporte por WhatsApp</a></li>
-                        <li><a href="#" id="show-tracking-modal"><i class="fas fa-chevron-right"></i> Seguimiento de Envíos</a></li>
-                        <li><a href="#" id="show-guides-modal"><i class="fas fa-chevron-right"></i> Guías de Usuario</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4 class="footer-title">Legal</h4>
-                    <ul class="footer-links">
-                        <li><a href="#" id="show-terms-modal"><i class="fas fa-chevron-right"></i> Términos de Servicio</a></li>
-                        <li><a href="#" id="show-privacy-modal"><i class="fas fa-chevron-right"></i> Política de Privacidad</a></li>
-                        <li><a href="#" id="show-legal-modal"><i class="fas fa-chevron-right"></i> Aviso Legal</a></li>
-                        <li><a href="#" id="show-cookies-modal"><i class="fas fa-chevron-right"></i> Política de Cookies</a></li>
-                        <li><a href="#" id="show-shipping-modal"><i class="fas fa-chevron-right"></i> Condiciones de Envío</a></li>
-                    </ul>
+                <div class="map-info-card">
+                    <h3>¿Cómo llegar?</h3>
+                    <p>Nuestras instalaciones están estratégicamente ubicadas para facilitar el acceso y la logística de tus envíos.</p>
+                    
+                    <div class="map-directions">
+                        <a href="https://www.google.com/maps/dir//Calle+Cultura+99,+Pantoja,+Santo+Domingo+Oeste,+República+Dominicana/@18.4724034,-69.9315824,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8ea5626a93e119e1:0x9e7a7c1a9d4e1b1f!2m2!1d-69.9315824!2d18.4724034" 
+                           target="_blank" 
+                           class="btn-direction btn-direction-primary">
+                            <i class="fas fa-directions"></i> Indicaciones
+                        </a>
+                        <a href="tel:+18095557890" class="btn-direction btn-direction-outline">
+                            <i class="fas fa-phone-alt"></i> Llamar ahora
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-copyright">
-                <p>&copy; 2023 <strong>Globaline Logistic</strong>. Todos los derechos reservados. | Diseño y desarrollo por <strong>Ruddy De La Cruz Pérez</strong></p>
-                <p class="legal-disclaimer">Este sitio web y todos sus contenidos son propiedad intelectual de Ruddy De La Cruz Pérez. Queda prohibida cualquier reproducción sin autorización expresa.</p>
-            </div>
-              
-            </div>
-
-    <!-- Modal de WhatsApp Fixed -->
-    <div class="whatsapp-fixed" onclick="openWhatsApp()">
-        <i class="fab fa-whatsapp"></i>
-    </div>
-</footer>
-
-<!-- Modales Legales -->
-<div id="terms-modal" class="legal-modal">
-    <div class="legal-modal-content">
-        <div class="legal-modal-header">
-            <h3>Términos de Servicio</h3>
-            <button class="legal-modal-close">&times;</button>
-        </div>
-        <div class="legal-modal-body">
-            <h4>1. Aceptación de los Términos</h4>
-            <p>Este sitio web fue desarrollado por Ruddy De La Cruz Pérez. Al acceder y utilizar este sitio, usted acepta cumplir con estos términos de servicio.</p>
-            
-            <h4>2. Propiedad Intelectual</h4>
-            <p>Todos los derechos de propiedad intelectual del diseño, código y contenido de este sitio son propiedad exclusiva de Ruddy De La Cruz Pérez.</p>
-            
-            <h4>3. Uso del Sitio</h4>
-            <p>Queda prohibido cualquier uso no autorizado del contenido, incluyendo reproducción, distribución o modificación sin autorización expresa.</p>
-        </div>
-        <div class="legal-modal-footer">
-            <button class="btn btn-primary legal-modal-close">Entendido</button>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Repetir estructura similar para los otros modales legales (privacy, legal, cookies, shipping) -->
+    <!-- FAQ Section -->
+    <section class="faq-premium" id="faq">
+        <div class="faq-premium-container">
+            <div class="section-header">
+                <h2>Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Encuentra respuestas a las dudas más comunes sobre nuestros servicios</p>
+            </div>
+            
+            <div class="faq-premium-content">
+                <div class="faq-illustration">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipo logístico trabajando">
+                </div>
+                
+                <div class="faq-accordion">
+                    <!-- Pregunta 1 -->
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <div class="question-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="question-text">
+                                <h3>¿Qué tipos de mercancía pueden transportar?</h3>
+                                <div class="question-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="answer-content">
+                                <p>Transportamos una amplia variedad de mercancías, incluyendo:</p>
+                                <div class="answer-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Carga general y paquetería</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Productos perecederos (con cadena de frío)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Mercancía peligrosa (con restricciones)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Carga de gran volumen y peso</span>
+                                    </div>
+                                </div>
+                                <p class="small-text">*Algunas mercancías requieren embalaje especial. Consúltenos para detalles.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="question-icon">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <div class="question-text">
+                                <h3>¿Ofrecen servicios de almacenamiento a corto plazo?</h3>
+                                <div class="question-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="answer-content">
+                                <p>Sí, ofrecemos soluciones flexibles de almacenamiento adaptadas a tus necesidades:</p>
+                                <div class="storage-features">
+                                    <div class="feature-badge">
+                                        <i class="fas fa-calendar-week"></i>
+                                        <span>Desde 1 día hasta 1 año</span>
+                                    </div>
+                                    <div class="feature-badge">
+                                        <i class="fas fa-temperature-low"></i>
+                                        <span>Almacenamiento refrigerado</span>
+                                    </div>
+                                    <div class="feature-badge">
+                                        <i class="fas fa-lock"></i>
+                                        <span>Seguridad 24/7</span>
+                                    </div>
+                                </div>
+                                <div class="answer-actions">
+                                    <a href="#contact" class="btn btn-outline">Consultar disponibilidad</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="question-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="question-text">
+                                <h3>¿Cuáles son sus métodos de pago aceptados?</h3>
+                                <div class="question-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="answer-content">
+                                <p>Aceptamos múltiples formas de pago para tu conveniencia:</p>
+                                <div class="payment-methods">
+                                    <div class="payment-method">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Tarjetas de crédito/débito</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-university"></i>
+                                        <span>Transferencias bancarias</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-money-check-alt"></i>
+                                        <span>Cheques certificados</span>
+                                    </div>
+                                    <div class="payment-method">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                        <span>Efectivo (sucursal)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="question-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="question-text">
+                                <h3>¿Qué medidas de seguridad tienen para mi mercancía?</h3>
+                                <div class="question-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="answer-content">
+                                <p>La seguridad de tu mercancía es nuestra prioridad. Implementamos:</p>
+                                <ul class="security-features">
+                                    <li><strong>Rastreo GPS</strong> en todos nuestros vehículos</li>
+                                    <li><strong>Seguro de carga</strong> incluido en todos los envíos</li>
+                                    <li><strong>Conductores certificados</strong> con amplia experiencia</li>
+                                    <li><strong>Almacenes con sistemas</strong> de vigilancia 24/7</li>
+                                    <li><strong>Protocolos estrictos</strong> de manipulación de carga</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="question-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="question-text">
+                                <h3>¿Qué soporte ofrecen después de la entrega?</h3>
+                                <div class="question-toggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="answer-content">
+                                <p>Ofrecemos un soporte integral post-entrega que incluye:</p>
+                                <ul class="support-features">
+                                    <li><strong>Asistencia 24/7</strong> para cualquier consulta o incidencia</li>
+                                    <li><strong>Documentación completa</strong> de cada envío</li>
+                                    <li><strong>Informes de entrega</strong> con firma digital</li>
+                                    <li><strong>Seguimiento continuo</strong> para garantizar satisfacción</li>
+                                    <li><strong>Análisis de mejora</strong> para futuros envíos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Modal Equipo Directivo -->
-<div id="team-modal" class="info-modal">
-    <!-- Contenido del modal -->
-</div>
+    <!-- Footer Section -->
+    <footer class="footer-premium">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#5CE1E6"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#519F44"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#0b3056"></path>
+            </svg>
+        </div>
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../img/logo.ico" alt="Globaline Logistic">
+                        <span>Globaline <strong>Logistic</strong></span>
+                    </div>
+                    <p class="footer-description">Soluciones logísticas integrales para tu negocio. <strong>"Moviendo tu negocio globalmente"</strong> con eficiencia y seguridad.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/logystix_6th/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/18298261899" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:rubel.021@hotmail.com" class="social-icon" target="_blank"><i class="far fa-envelope"></i></a>
+                    </div>
 
-<!-- Modal Seguimiento de Envíos -->
-<div id="tracking-modal" class="info-modal">
-    <!-- Contenido del modal -->
-</div>
+                    <!-- Sección de promoción del desarrollador -->
+                    <div class="developer-promo">
+                        <h3 class="dev-title"><i class="fas fa-code"></i> Desarrollo Web</h3>
+                        <p class="dev-description">¿Necesitas un sitio web profesional como este? Contáctame para desarrollar tu presencia en línea.</p>
+                        <div class="dev-skills">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Diseño Responsivo</span>
+                            <span class="skill-tag">SEO</span>
+                        </div>
+                        <ul class="dev-contact-list">
+                            <li>
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="https://wa.me/18298261899" target="_blank">829-826-1899</a>
+                            </li>
+                            <li>
+                                <i class="fab fa-instagram"></i>
+                                <a href="https://www.instagram.com/rudd.dlcp/" target="_blank">@rudd.dlcp</a>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:rubel.021@hotmail.com">rubel.021@hotmail.com</a>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/18298261899" class="btn-hire" target="_blank">
+                            <i class="fas fa-paper-plane"></i> Contrátame
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h3 class="footer-title">Enlaces Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3 class="footer-title">Servicios</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Transporte</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Almacenamiento</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Distribución</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Logística Internacional</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Seguimiento</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3 class="footer-title">Contacto</h3>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Santo Domingo</a></li>
+                            <li><a href="tel:+18091234567"><i class="fas fa-phone-alt"></i> (809) 123-4567</a></li>
+                            <li><a href="mailto:info@globaline.com"><i class="far fa-envelope"></i> info@globaline.com</a></li>
+                            <li><a href="https://wa.me/18298261899"><i class="fab fa-whatsapp"></i> WhatsApp: 829-826-1899</a></li>
+                            <li><a href="#"><i class="far fa-clock"></i> Lunes-Viernes: 8AM-6PM</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2023 <strong>Globaline Logistic</strong>. Todos los derechos reservados.</p>
+                <div class="footer-payments">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard">
+                    <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="PayPal">
+                    <img src="https://cdn-icons-png.flaticon.com/512/825/825423.png" alt="American Express">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals Section -->
+    <!-- Modal Transporte de Mercancías -->
+    <div id="modal-transporte" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Transporte de Mercancías</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-inner">
+                    <p>Nuestro servicio de transporte terrestre ofrece soluciones logísticas completas para envíos dentro de la República Dominicana, garantizando puntualidad y seguridad en cada entrega.</p>
+                    
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div>
+                                <h4>Cobertura Nacional Completa</h4>
+                                <p>Red de transporte que cubre todo el territorio dominicano con rutas optimizadas.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Entregas Puntuales</h4>
+                                <p>Compromiso con los tiempos de entrega acordados y seguimiento en tiempo real.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Seguridad Garantizada</h4>
+                                <p>Vehículos equipados con los más altos estándares de seguridad y conductores certificados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Beneficios Clave</h4>
+                    <ul class="modal-benefits">
+                        <li>Coordinación profesional de toda la cadena de transporte</li>
+                        <li>Flota moderna y mantenida periódicamente</li>
+                        <li>Seguro de carga incluido en todos los envíos</li>
+                        <li>Soporte logístico 24/7 para emergencias</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close">Cerrar</button>
+                <a href="#contact" class="btn btn-accent">Solicitar Cotización</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Almacenamiento -->
+    <div id="modal-almacenamiento" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Soluciones de Almacenamiento</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-inner">
+                    <p>Ofrecemos espacios de almacenamiento flexibles y seguros, adaptados a las necesidades específicas de cada cliente en ubicaciones estratégicas del país.</p>
+                    
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h4>Seguridad Avanzada</h4>
+                                <p>Sistemas de vigilancia 24/7, control de acceso y protección contra incendios.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div>
+                                <h4>Control de Clima</h4>
+                                <p>Opciones de almacenamiento refrigerado para productos sensibles a la temperatura.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-box-open"></i>
+                            <div>
+                                <h4>Gestión de Inventario</h4>
+                                <p>Sistemas digitales para el seguimiento preciso de sus existencias.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Opciones Disponibles</h4>
+                    <div class="modal-options">
+                        <div class="modal-option">
+                            <h5>Almacenamiento a Corto Plazo</h5>
+                            <p>Ideal para necesidades temporales o estacionales con contratos flexibles.</p>
+                        </div>
+                        <div class="modal-option">
+                            <h5>Almacenamiento a Largo Plazo</h5>
+                            <p>Soluciones económicas para almacenamiento prolongado con descuentos por volumen.</p>
+                        </div>
+                        <div class="modal-option">
+                            <h5>Centros de Distribución</h5>
+                            <p>Ubicaciones estratégicas para optimizar sus operaciones de logística.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close">Cerrar</button>
+                <a href="#contact" class="btn btn-accent">Consultar Disponibilidad</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Distribución -->
+    <div id="modal-distribucion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Gestión de Distribución</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-inner">
+                    <p>Gestión integral de la distribución de mercancías desde el punto de origen hasta el destino final, garantizando un flujo eficiente en todo el territorio nacional.</p>
+                    
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-route"></i>
+                            <div>
+                                <h4>Optimización de Rutas</h4>
+                                <p>Tecnología avanzada para planificar las rutas más eficientes.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div>
+                                <h4>Entrega Just-in-Time</h4>
+                                <p>Sincronización perfecta con sus procesos productivos.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <h4>Última Milla</h4>
+                                <p>Soluciones especializadas para la etapa final de distribución.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Nuestro Enfoque</h4>
+                    <div class="modal-process">
+                        <div class="process-step">
+                            <span>1</span>
+                            <p>Planificación estratégica de la red de distribución</p>
+                        </div>
+                        <div class="process-step">
+                            <span>2</span>
+                            <p>Implementación de tecnología de seguimiento</p>
+                        </div>
+                        <div class="process-step">
+                            <span>3</span>
+                            <p>Ejecución con equipos especializados</p>
+                        </div>
+                        <div class="process-step">
+                            <span>4</span>
+                            <p>Monitoreo y mejora continua</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close">Cerrar</button>
+                <a href="#contact" class="btn btn-accent">Optimizar mi Distribución</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Gestión de la Cadena de Suministro -->
+    <div id="modal-gestion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Gestión de la Cadena de Suministro</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-inner">
+                    <p>Ofrecemos asesoramiento especializado y herramientas avanzadas para mejorar la visibilidad y eficiencia operativa en toda su cadena de suministro nacional.</p>
+                    
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Análisis de Datos</h4>
+                                <p>Herramientas de análisis para identificar oportunidades de mejora en su cadena de suministro.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <h4>Optimización de Procesos</h4>
+                                <p>Reingeniería de procesos para aumentar la eficiencia y reducir costos operativos.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-project-diagram"></i>
+                            <div>
+                                <h4>Integración de Sistemas</h4>
+                                <p>Conexión de todos los eslabones de la cadena para una gestión unificada y transparente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Servicios Incluidos</h4>
+                    <ul class="modal-benefits">
+                        <li>Consultoría especializada en optimización de la cadena de suministro</li>
+                        <li>Implementación de KPIs y dashboards de rendimiento</li>
+                        <li>Capacitación del personal en mejores prácticas logísticas</li>
+                        <li>Auditorías periódicas para identificar áreas de mejora</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close">Cerrar</button>
+                <a href="#contact" class="btn btn-accent">Solicitar Análisis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Logística Personalizada -->
+    <div id="modal-logistica" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Logística Personalizada</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-inner">
+                    <p>Desarrollamos soluciones adaptadas a las particularidades de cada sector dentro de la República Dominicana, asegurando que cada cliente reciba el soporte logístico específico que su negocio necesita.</p>
+                    
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-user-cog"></i>
+                            <div>
+                                <h4>Soluciones a Medida</h4>
+                                <p>Diseñamos estrategias logísticas adaptadas a los requerimientos únicos de su empresa.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-industry"></i>
+                            <div>
+                                <h4>Enfoque Sectorial</h4>
+                                <p>Especialistas en la logística específica de diversos sectores: retail, farmacéutico, industrial, etc.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <h4>Relaciones a Largo Plazo</h4>
+                                <p>Nos convertimos en un socio estratégico, comprometido con el crecimiento de su empresa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Sectores que Atendemos</h4>
+                    <div class="modal-sectors">
+                        <div class="modal-sector">
+                            <h5>Sector Alimentario</h5>
+                            <p>Transporte refrigerado y gestión de cadena de frío para productos perecederos.</p>
+                        </div>
+                        <div class="modal-sector">
+                            <h5>Sector Farmacéutico</h5>
+                            <p>Cumplimiento de normativas y manejo especializado de productos médicos y farmacéuticos.</p>
+                        </div>
+                        <div class="modal-sector">
+                            <h5>Sector Retail</h5>
+                            <p>Soluciones para el abastecimiento eficiente de tiendas y gestión de picos estacionales.</p>
+                        </div>
+                        <div class="modal-sector">
+                            <h5>Sector Industrial</h5>
+                            <p>Transporte de carga pesada y gestión de materias primas para procesos productivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close">Cerrar</button>
+                <a href="#contact" class="btn btn-accent">Consultar Opciones</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Almacenamiento Especializado -->
+    <div id="modal-almacenamiento-especializado" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Almacenamiento Especializado</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-content-inner">
+                    <p>Ofrecemos soluciones de almacenamiento avanzadas para productos y mercancías que requieren condiciones específicas, con instalaciones de última generación en ubicaciones estratégicas de la República Dominicana.</p>
+                    
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-temperature-low"></i>
+                            <div>
+                                <h4>Control Climático Preciso</h4>
+                                <p>Sistemas avanzados para mantener temperatura y humedad controladas, ideales para productos sensibles.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Seguridad Reforzada</h4>
+                                <p>Protocolos y tecnología de seguridad de nivel bancario para mercancías de alto valor.</p>
+                            </div>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <h4>Trazabilidad Total</h4>
+                                <p>Sistemas de seguimiento y gestión de inventario en tiempo real con códigos QR y tecnología RFID.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Instalaciones Especializadas</h4>
+                    <div class="modal-options">
+                        <div class="modal-option">
+                            <h5>Almacenes Refrigerados</h5>
+                            <p>Control de temperatura entre 2°C y 8°C para productos farmacéuticos y alimentarios perecederos.</p>
+                        </div>
+                        <div class="modal-option">
+                            <h5>Almacenes de Alta Seguridad</h5>
+                            <p>Sistemas de acceso biométrico y vigilancia 24/7 para mercancías de alto valor.</p>
+                        </div>
+                        <div class="modal-option">
+                            <h5>Almacenes para Productos Químicos</h5>
+                            <p>Instalaciones con sistemas de contención y seguridad para productos químicos y peligrosos.</p>
+                        </div>
+                        <div class="modal-option">
+                            <h5>Almacenamiento de Documentos</h5>
+                            <p>Archivo y gestión documental con control de humedad y protección contra incendios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary modal-close">Cerrar</button>
+                <a href="#contact" class="btn btn-accent">Solicitar Información</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Términos de Servicio -->
+    <div id="terms-modal" class="legal-modal">
+        <div class="legal-modal-content">
+            <div class="legal-modal-header">
+                <h3>Términos de Servicio</h3>
+                <button class="legal-modal-close">&times;</button>
+            </div>
+            <div class="legal-modal-body">
+                <h4>1. Aceptación de los Términos</h4>
+                <p>Este sitio web fue desarrollado por Ruddy De La Cruz Pérez. Al acceder y utilizar este sitio, usted acepta cumplir con estos términos de servicio.</p>
+                
+                <h4>2. Propiedad Intelectual</h4>
+                <p>Todos los derechos de propiedad intelectual del diseño, código y contenido de este sitio son propiedad exclusiva de Ruddy De La Cruz Pérez.</p>
+                
+                <h4>3. Uso del Sitio</h4>
+                <p>Queda prohibido cualquier uso no autorizado del contenido, incluyendo reproducción, distribución o modificación sin autorización expresa.</p>
+            </div>
+            <div class="legal-modal-footer">
+                <button class="btn btn-primary legal-modal-close">Entendido</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
