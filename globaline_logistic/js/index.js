@@ -28,11 +28,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Cerrar modal
-    document.querySelectorAll('.modal-close, .modal').forEach(closeBtn => {
-        closeBtn.addEventListener('click', function() {
-            this.closest('.modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
+    // Cerrar modal (botón cerrar y clic fuera del contenido)
+    document.querySelectorAll('.modal-close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    // Cerrar modal al hacer clic en el fondo
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
         });
     });
 
@@ -43,6 +57,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Botones de cotización - cerrar modal y redireccionar a contacto
+    document.querySelectorAll('.btn-quote').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // Cerrar el modal primero
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Luego, desplazarse a la sección de contacto
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                setTimeout(() => {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }, 300); // Pequeño retraso para que se complete la animación de cierre del modal
+            }
+        });
+    });
 });
 
 // Función para WhatsApp

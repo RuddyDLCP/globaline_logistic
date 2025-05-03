@@ -11,10 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-    <script src="js/index.js"></script>
 </head>
 <body>
-   
     <!-- Header Section -->
     <header>
         <div class="header-container">
@@ -159,7 +157,7 @@
             <div class="about-content">
                 <div class="about-image-container">
                     <div class="about-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Equipo de Globaline Logistic trabajando" class="about-main-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Equipo de Globaline Logistic trabajando" class="about-main-image">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="about-badge">
@@ -327,150 +325,241 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
+   <!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="contact-container">
+        <div class="section-header">
             <h2>Contáctenos</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Nombre Completo</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Teléfono</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Asunto</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <div class="contact-info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Dirección</h4>
-                            <p>G2C4+QR Pantoja, San José Fe Y Alegría<br>Calle Cultura 99, Pantoja</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Teléfono</h4>
-                            <p> (809) 701-2780</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@globalinelogistic.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Horario de Atención</h4>
-                            <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                            <p>Sábados: 9:00 AM - 1:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p class="section-subtitle">Complete el formulario y nos pondremos en contacto con usted lo antes posible</p>
         </div>
-    </section>
-
-   <!-- ============ MAP SECTION ============ -->
-<section class="map-section">
-    <div class="map-container">
-        <div class="map-content">
-            <div class="map-wrapper">
-                <iframe class="map-iframe" 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.6713640000003!2d-69.9315824!3d18.4724034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626a93e119e1%3A0x9e7a7c1a9d4e1b1f!2sCalle%20Cultura%2099%2C%20Pantoja%2C%20Santo%20Domingo%20Oeste%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
-                    allowfullscreen="" 
-                    loading="lazy"
-                    aria-label="Mapa de ubicación de Globaline Logistic en Pantoja">
-                </iframe>
-                <div class="map-overlay"></div>
+        
+        <div class="contact-content">
+            <div class="contact-form-container">
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Ej: Juan Pérez">
+                            <div class="form-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="Ej: ejemplo@dominio.com">
+                            <div class="form-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Teléfono <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Ej: 809-555-1234">
+                            <div class="form-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Empresa (Opcional)</label>
+                            <input type="text" id="company" name="company" placeholder="Nombre de su empresa">
+                            <div class="form-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Asunto <span class="required">*</span></label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Seleccione un asunto</option>
+                            <option value="cotizacion">Solicitud de cotización</option>
+                            <option value="servicios">Consulta sobre servicios</option>
+                            <option value="seguimiento">Seguimiento de envío</option>
+                            <option value="soporte">Soporte técnico</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <div class="form-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje <span class="required">*</span></label>
+                        <textarea id="message" name="message" required placeholder="Describa su consulta en detalle..."></textarea>
+                        <div class="form-icon textarea-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <div class="form-notes">
+                            <p><span class="required">*</span> Campos obligatorios</p>
+                            <div class="privacy-checkbox">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">Acepto la <a href="#" class="privacy-link">Política de Privacidad</a></label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
             </div>
             
-            <div class="map-info">
-                <div class="map-info-card">
-                    <h3>Información de Contacto</h3>
+            <div class="contact-info-container">
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-info-circle"></i> Información Adicional</h3>
+                    <p>Si prefieres, puedes contactarnos directamente a través de los siguientes medios:</p>
                     
-                    <div class="map-info-item">
-                        <div class="map-info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Teléfono</h4>
+                                <a href="tel:+18095551234">(809) 555-1234</a>
+                            </div>
                         </div>
-                        <div class="map-info-text">
-                            <h4>Dirección Principal</h4>
-                            <p>G2C4+QR Pantoja, San José Fe Y Alegría<br>Calle Cultura 99, Pantoja</p>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Email</h4>
+                                <a href="mailto:info@globalinelogistic.com">info@globalinelogistic.com</a>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="map-info-item">
-                        <div class="map-info-icon">
-                            <i class="fas fa-phone-alt"></i>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/18298261899">+1 829-826-1899</a>
+                            </div>
                         </div>
-                        <div class="map-info-text">
-                            <h4>Teléfono</h4>
-                            <p>(809) 701-2780</p>
-                        </div>
-                    </div>
-                    
-                    <div class="map-info-item">
-                        <div class="map-info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="map-info-text">
-                            <h4>Email</h4>
-                            <p>info@globalinelogistic.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="map-info-item">
-                        <div class="map-info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="map-info-text">
-                            <h4>Horario</h4>
-                            <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 1:00 PM</p>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>
+                                Sábados: 9:00 AM - 1:00 PM</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="map-info-card">
-                    <h3>¿Cómo llegar?</h3>
-                    <p>Nuestras instalaciones están estratégicamente ubicadas para facilitar el acceso y la logística de tus envíos.</p>
-                    
-                    <div class="map-directions">
-                        <a href="https://www.google.com/maps/dir//Calle+Cultura+99,+Pantoja,+Santo+Domingo+Oeste,+República+Dominicana/@18.4724034,-69.9315824,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8ea5626a93e119e1:0x9e7a7c1a9d4e1b1f!2m2!1d-69.9315824!2d18.4724034" 
-                           target="_blank" 
-                           class="btn-direction btn-direction-primary">
-                            <i class="fas fa-directions"></i> Indicaciones
-                        </a>
-                        <a href="tel:+18095557890" class="btn-direction btn-direction-outline">
-                            <i class="fas fa-phone-alt"></i> Llamar ahora
-                        </a>
+                <div class="contact-social">
+                    <h4>Síguenos en Redes Sociales</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/logystix_6th/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/logystix_6th/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/logystix_6th/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/logystix_6th/" class="social-link"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2>Contáctenos</h2>
+        <div class="map-container">
+            <div class="map-content">
+                <div class="map-wrapper">
+                    <iframe class="map-iframe" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.6713640000003!2d-69.9315824!3d18.4724034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626a93e119e1%3A0x9e7a7c1a9d4e1b1f!2sCalle%20Cultura%2099%2C%20Pantoja%2C%20Santo%20Domingo%20Oeste%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        aria-label="Mapa de ubicación de Globaline Logistic en Pantoja">
+                    </iframe>
+                    <div class="map-overlay"></div>
+                </div>
+                
+                <div class="map-info-card">
+                    <h3><i class="fas fa-star"></i> Lo que dicen nuestros clientes</h3>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Globaline Logistic resolvió nuestro problema de última milla cuando nadie más pudo. ¡Servicio excepcional!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>María Rodríguez</h4>
+                                <p>Importadora Caribeña</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"La eficiencia en la distribución y el seguimiento en tiempo real superaron todas nuestras expectativas. Totalmente recomendados."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Carlos Méndez</h4>
+                                <p>Distribuidora Nacional</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Su sistema de almacenamiento especializado fue la solución perfecta para nuestros productos farmacéuticos. Cumplen con todos los protocolos."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Dra. Laura Jiménez</h4>
+                                <p>Farmacéutica Vitalis</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"Como empresa de e-commerce, su logística de última milla ha reducido nuestros tiempos de entrega en un 40%. Socios estratégicos."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Roberto Sánchez</h4>
+                                <p>TiendaOnline.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="map-info-card">
+                        <h3>¿Cómo llegar?</h3>
+                        <p>Nuestras instalaciones están estratégicamente ubicadas para facilitar el acceso y la logística de tus envíos.</p>
+                        
+                        <div class="map-directions">
+                            <a href="https://www.google.com/maps/dir//Calle+Cultura+99,+Pantoja,+Santo+Domingo+Oeste,+República+Dominicana/@18.4724034,-69.9315824,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8ea5626a93e119e1:0x9e7a7c1a9d4e1b1f!2m2!1d-69.9315824!2d18.4724034" 
+                               target="_blank" 
+                               class="btn-direction btn-direction-primary">
+                                <i class="fas fa-directions"></i> Indicaciones
+                            </a>
+                            <a href="tel:+18095557890" class="btn-direction btn-direction-outline">
+                                <i class="fas fa-phone-alt"></i> Llamar ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FAQ Section -->
     <section class="faq-premium" id="faq">
@@ -482,7 +571,7 @@
             
             <div class="faq-premium-content">
                 <div class="faq-illustration">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipo logístico trabajando">
+                    <img src="https://images.unsplash.com/photo-1504376830547-506dedfe1fe9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Equipo logístico trabajando">
                 </div>
                 
                 <div class="faq-accordion">
@@ -659,19 +748,20 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer-premium">
-        <div class="footer-wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#5CE1E6"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#519F44"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#0b3056"></path>
-            </svg>
-        </div>
-        <div class="footer-container">
-            <div class="footer-main">
+<footer class="footer-premium">
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#5CE1E6"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#519F44"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#0b3056"></path>
+        </svg>
+    </div>
+    <div class="footer-container">
+        <div class="footer-main">
+            <div class="footer-company">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="../img/logo.ico" alt="Globaline Logistic">
+                        <img src="./img/logo.jpeg" alt="Globaline Logistic">
                         <span>Globaline <strong>Logistic</strong></span>
                     </div>
                     <p class="footer-description">Soluciones logísticas integrales para tu negocio. <strong>"Moviendo tu negocio globalmente"</strong> con eficiencia y seguridad.</p>
@@ -680,82 +770,187 @@
                         <a href="https://wa.me/18298261899" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
                         <a href="mailto:rubel.021@hotmail.com" class="social-icon" target="_blank"><i class="far fa-envelope"></i></a>
                     </div>
-
-                    <!-- Sección de promoción del desarrollador -->
-                    <div class="developer-promo">
-                        <h3 class="dev-title"><i class="fas fa-code"></i> Desarrollo Web</h3>
-                        <p class="dev-description">¿Necesitas un sitio web profesional como este? Contáctame para desarrollar tu presencia en línea.</p>
-                        <div class="dev-skills">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Diseño Responsivo</span>
-                            <span class="skill-tag">SEO</span>
-                        </div>
-                        <ul class="dev-contact-list">
-                            <li>
-                                <i class="fab fa-whatsapp"></i>
-                                <a href="https://wa.me/18298261899" target="_blank">829-826-1899</a>
-                            </li>
-                            <li>
-                                <i class="fab fa-instagram"></i>
-                                <a href="https://www.instagram.com/rudd.dlcp/" target="_blank">@rudd.dlcp</a>
-                            </li>
-                            <li>
-                                <i class="far fa-envelope"></i>
-                                <a href="mailto:rubel.021@hotmail.com">rubel.021@hotmail.com</a>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/18298261899" class="btn-hire" target="_blank">
-                            <i class="fas fa-paper-plane"></i> Contrátame
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-columns">
-                    <div class="footer-col">
-                        <h3 class="footer-title">Enlaces Rápidos</h3>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Servicios</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h3 class="footer-title">Servicios</h3>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Transporte</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Almacenamiento</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Distribución</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Logística Internacional</a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> Seguimiento</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h3 class="footer-title">Contacto</h3>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Santo Domingo</a></li>
-                            <li><a href="tel:+18091234567"><i class="fas fa-phone-alt"></i> (809) 123-4567</a></li>
-                            <li><a href="mailto:info@globaline.com"><i class="far fa-envelope"></i> info@globaline.com</a></li>
-                            <li><a href="https://wa.me/18298261899"><i class="fab fa-whatsapp"></i> WhatsApp: 829-826-1899</a></li>
-                            <li><a href="#"><i class="far fa-clock"></i> Lunes-Viernes: 8AM-6PM</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2023 <strong>Globaline Logistic</strong>. Todos los derechos reservados.</p>
-                <div class="footer-payments">
-                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
-                    <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard">
-                    <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="PayPal">
-                    <img src="https://cdn-icons-png.flaticon.com/512/825/825423.png" alt="American Express">
+
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Transporte</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Almacenamiento</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Distribución</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Logística Internacional</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Seguimiento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> G2C4+QR Pantoja, San José Fe Y Alegría
+                            Calle Cultura 99, Pantoja</a></li>
+                        <li><a href="tel:+18091234567"><i class="fas fa-phone-alt"></i> 000-000-0000</a></li>
+                        <li><a href="mailto:info@globaline.com"><i class="far fa-envelope"></i> info@globaline.com</a></li>
+                        <li><a href="https://wa.me/18298261899"><i class="fab fa-whatsapp"></i> WhatsApp: 829-826-1899</a></li>
+                        <li><a href="#"><i class="far fa-clock"></i> Lunes-Viernes: 8AM-6PM</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
 
-    <!-- Modals Section -->
+<!-- Sección de promoción del desarrollador - Versión Premium -->
+<div class="developer-promo-section">
+    <div class="developer-card">
+        <div class="dev-header">
+            <div class="dev-avatar">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Ruddy De La Cruz Pérez</h3>
+            <p class="dev-title">Ingeniero de Software Full Stack | Especialista en Integración</p>
+        </div>
+
+        <div class="dev-expertise">
+            <h4><i class="fas fa-star"></i> Áreas de Especialización</h4>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <i class="fas fa-random"></i>
+                    <h5>Integración de Sistemas</h5>
+                    <p>Soluciones ETL, Middleware, IBM ACE/MQ, flujos de mensajería</p>
+                </div>
+                <div class="expertise-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h5>Seguridad API</h5>
+                    <p>API Gateways, políticas de seguridad, OAuth2, JWT</p>
+                </div>
+                <div class="expertise-item">
+                    <i class="fas fa-cloud"></i>
+                    <h5>Arquitecturas Cloud</h5>
+                    <p>Microservicios, contenerización, patrones de resiliencia</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dev-tech-stack">
+            <h4><i class="fas fa-cogs"></i> Stack Tecnológico</h4>
+            <div class="tech-categories">
+                <div class="tech-column">
+                    <h5><i class="fas fa-server"></i> Backend</h5>
+                    <ul>
+                        <li><i class="fab fa-java"></i> Java (Quarkus/Spring Boot)</li>
+                        <li><i class="fas fa-code"></i> .NET Core</li>
+                        <li><i class="fas fa-database"></i> SQL Server/AS400</li>
+                    </ul>
+                </div>
+                <div class="tech-column">
+                    <h5><i class="fas fa-exchange-alt"></i> Integración</h5>
+                    <ul>
+                        <li><i class="fas fa-project-diagram"></i> IBM App Connect</li>
+                        <li><i class="fas fa-envelope"></i> IBM MQ</li>
+                        <li><i class="fas fa-shield-virus"></i> API Connect/Layer7</li>
+                    </ul>
+                </div>
+                <div class="tech-column">
+                    <h5><i class="fab fa-dev"></i> DevOps</h5>
+                    <ul>
+                        <li><i class="fab fa-docker"></i> Docker/Kubernetes</li>
+                        <li><i class="fas fa-terminal"></i> CI/CD Pipelines</li>
+                        <li><i class="fas fa-cloud"></i> Azure/AWS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dev-services">
+            <h4><i class="fas fa-list-check"></i> Servicios Profesionales</h4>
+            <div class="services-columns">
+                <div class="service-column">
+                    <h5><i class="fas fa-cubes"></i> Desarrollo</h5>
+                    <ul>
+                        <li>APIs REST/GraphQL</li>
+                        <li>Microservicios empresariales</li>
+                        <li>Modernización de legacy systems</li>
+                        <li>Arquitectura hexagonal</li>
+                    </ul>
+                </div>
+                <div class="service-column">
+                    <h5><i class="fas fa-puzzle-piece"></i> Integración</h5>
+                    <ul>
+                        <li>ESB/Middleware</li>
+                        <li>Transformación de datos</li>
+                        <li>Event-Driven Architecture</li>
+                        <li>Patrones de integración</li>
+                    </ul>
+                </div>
+                <div class="service-column">
+                    <h5><i class="fas fa-chart-line"></i> Optimización</h5>
+                    <ul>
+                        <li>Refactoring de código</li>
+                        <li>Mejora de performance</li>
+                        <li>Automatización de procesos</li>
+                        <li>Migración a cloud</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dev-achievements">
+            <h4><i class="fas fa-trophy"></i> Logros Clave</h4>
+            <ul>
+                <li>+50 flujos de integración implementados</li>
+                <li>+30 APIs diseñadas y desplegadas</li>
+                <li>Reducción de 70% en tiempos de procesamiento</li>
+                <li>Implementación de soluciones 24/7</li>
+            </ul>
+        </div>
+
+        <div class="dev-contact">
+            <h4><i class="fas fa-envelope-open-text"></i> Contacto</h4>
+            <div class="contact-grid">
+                <a href="https://wa.me/18298261899" class="contact-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:rubel.021@hotmail.com" class="contact-btn email">
+                    <i class="far fa-envelope"></i> Email
+                </a>
+                <a href="https://www.linkedin.com/in/ruddy-de-la-cruz-p%C3%A9rez-5b824822b/" class="contact-btn linkedin">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://wa.me/18298261899" class="contact-btn hire-me">
+                    <i class="fas fa-briefcase"></i> Contratar
+                </a>
+            </div>
+        </div>
+
+        <p class="signature">"Innovación técnica con resultados medibles"</p>
+    </div>
+</div>
+
+    <div class="footer-bottom">
+        <div class="footer-legal">
+            <p class="footer-copyright">© 2025 <strong>Ruddy De La Cruz Pérez</strong>. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-payments">
+        </div>
+    </div>
+</footer>
+
+      
+
+      
+
+   <!-- Modals Section -->
     <!-- Modal Transporte de Mercancías -->
     <div id="modal-transporte" class="modal">
         <div class="modal-content">
@@ -802,7 +997,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary modal-close">Cerrar</button>
-                <a href="#contact" class="btn btn-accent">Solicitar Cotización</a>
+                <a href="#contact" class="btn btn-accent btn-quote">Solicitar Cotización</a>
             </div>
         </div>
     </div>
@@ -861,7 +1056,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary modal-close">Cerrar</button>
-                <a href="#contact" class="btn btn-accent">Consultar Disponibilidad</a>
+                <a href="#contact" class="btn btn-accent btn-quote">Consultar Disponibilidad</a>
             </div>
         </div>
     </div>
@@ -924,7 +1119,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary modal-close">Cerrar</button>
-                <a href="#contact" class="btn btn-accent">Optimizar mi Distribución</a>
+                <a href="#contact" class="btn btn-accent btn-quote">Optimizar mi Distribución</a>
             </div>
         </div>
     </div>
@@ -975,7 +1170,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary modal-close">Cerrar</button>
-                <a href="#contact" class="btn btn-accent">Solicitar Análisis</a>
+                <a href="#contact" class="btn btn-accent btn-quote">Solicitar Análisis</a>
             </div>
         </div>
     </div>
@@ -1038,7 +1233,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary modal-close">Cerrar</button>
-                <a href="#contact" class="btn btn-accent">Consultar Opciones</a>
+                <a href="#contact" class="btn btn-accent btn-quote">Consultar Opciones</a>
             </div>
         </div>
     </div>
@@ -1101,32 +1296,17 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary modal-close">Cerrar</button>
-                <a href="#contact" class="btn btn-accent">Solicitar Información</a>
+                <a href="#contact" class="btn btn-accent btn-quote">Solicitar Información</a>
             </div>
         </div>
     </div>
 
-    <!-- Modal Términos de Servicio -->
-    <div id="terms-modal" class="legal-modal">
-        <div class="legal-modal-content">
-            <div class="legal-modal-header">
-                <h3>Términos de Servicio</h3>
-                <button class="legal-modal-close">&times;</button>
-            </div>
-            <div class="legal-modal-body">
-                <h4>1. Aceptación de los Términos</h4>
-                <p>Este sitio web fue desarrollado por Ruddy De La Cruz Pérez. Al acceder y utilizar este sitio, usted acepta cumplir con estos términos de servicio.</p>
-                
-                <h4>2. Propiedad Intelectual</h4>
-                <p>Todos los derechos de propiedad intelectual del diseño, código y contenido de este sitio son propiedad exclusiva de Ruddy De La Cruz Pérez.</p>
-                
-                <h4>3. Uso del Sitio</h4>
-                <p>Queda prohibido cualquier uso no autorizado del contenido, incluyendo reproducción, distribución o modificación sin autorización expresa.</p>
-            </div>
-            <div class="legal-modal-footer">
-                <button class="btn btn-primary legal-modal-close">Entendido</button>
-            </div>
-        </div>
-    </div>
+
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://wa.me/18298261899" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/index.js"></script>
 </body>
 </html>
