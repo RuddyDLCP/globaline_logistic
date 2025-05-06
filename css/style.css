@@ -1962,8 +1962,9 @@ nav ul li a:hover::after {
   height: 100%;
   display: flex;
   flex-direction: column;
-  position: relative; /* Añadido para que el pseudo-elemento se posicione correctamente */
+  position: relative;
 }
+
 .developer-card::before {
   content: '';
   position: absolute;
@@ -1973,8 +1974,10 @@ nav ul li a:hover::after {
   bottom: 0;
   background: linear-gradient(135deg, #0b3056, #1a4b7a);
   z-index: -1;
-  border-radius: 12px; /* Cambiado para que coincida con .developer-card */
-}ev-header {
+  border-radius: 12px;
+}
+
+.dev-header {
   text-align: center;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -2091,6 +2094,8 @@ nav ul li a:hover::after {
   color: white;
   font-size: 14px;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact-method.whatsapp {
@@ -2103,9 +2108,9 @@ nav ul li a:hover::after {
   border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
-.contact-method.instagram {
-  background: rgba(225, 48, 108, 0.2);
-  border: 1px solid rgba(225, 48, 108, 0.3);
+.contact-method.linkedin {
+  background: rgba(10, 102, 194, 0.2);
+  border: 1px solid rgba(10, 102, 194, 0.3);
 }
 
 .contact-method:hover {
@@ -2128,6 +2133,9 @@ nav ul li a:hover::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 .btn-hire-me:hover {
@@ -2135,7 +2143,6 @@ nav ul li a:hover::after {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(81, 159, 68, 0.4);
 }
-
 /* ============ MODALES ============ */
 .modal {
   display: none;
