@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Constantes para las credenciales de administrador
     const ADMIN_EMAIL = "admin@globaline.com";
     const ADMIN_PASSWORD = "Xr9$Lk!27p#QzWd3@Fb6";
-
+    
+    // URL base de la API en Railway (reemplaza esto con tu URL de Railway)
+    const API_BASE_URL = "http://globalinelogisticapi-production.up.railway.app"; // Actualiza esta URL con la de tu proyecto en Railway
+    
     // Toggle password visibility (sin cambios)
     const togglePassword = document.querySelector('.toggle-password');
     const passwordInput = document.querySelector('#password');
@@ -46,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log("Datos a enviar:", JSON.stringify(userData));
 
-                // Petición a la API
-                const response = await fetch('http://localhost:8080/auth/login', {
+                // Petición a la API (usando la URL de Railway)
+                const response = await fetch(`${API_BASE_URL}/auth/login`, {
                     method: 'POST',
                     mode: 'cors',
                     headers: {
