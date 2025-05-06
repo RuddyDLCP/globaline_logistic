@@ -837,6 +837,16 @@ nav ul li a:hover::after {
   box-shadow: 0 10px 20px rgba(92, 225, 230, 0.3);
 }
 
+/* Eliminamos la decoración con forma de ojo */
+.mission-decoration {
+  display: none;
+}
+
+/* También ocultamos cualquier SVG dentro de la tarjeta de misión */
+.mission-svg {
+  display: none;
+}
+
 .vision-card .card-icon {
   background: linear-gradient(135deg, #0b3056, #1c5b8f);
   box-shadow: 0 10px 20px rgba(11, 48, 86, 0.3);
@@ -995,6 +1005,16 @@ nav ul li a:hover::after {
   .mvv-card {
     padding: 20px 15px;
   }
+}
+
+/* Ocultar todos los elementos decorativos en las tarjetas */
+.mission-decoration,
+.vision-decoration,
+.values-decoration,
+.mission-svg,
+.vision-line,
+.values-dots {
+  display: none !important;
 }
 
 /* ============ FAQ SECTION ============ */
