@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ADMIN_PASSWORD = "Xr9$Lk!27p#QzWd3@Fb6";
     
     // URL base de la API en Railway (reemplaza esto con tu URL de Railway)
-    const API_BASE_URL = "http://globalinelogisticapi-production.up.railway.app"; // Actualiza esta URL con la de tu proyecto en Railway
+    const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app"; // Actualiza esta URL con la de tu proyecto en Railway
     
     // Toggle password visibility (sin cambios)
     const togglePassword = document.querySelector('.toggle-password');

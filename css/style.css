@@ -337,21 +337,61 @@ nav ul li a:hover::after {
 .tracking-form {
   display: flex;
   gap: 10px;
+  /* Añadimos esto para que los elementos internos se distribuyan */
+  flex-wrap: wrap; /* Permitimos que los elementos pasen a la siguiente línea en pantallas pequeñas */
 }
 
 .tracking-form input {
-  flex: 1;
+  flex-grow: 1; /* El input ocupará el espacio disponible */
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
   transition: border-color 0.3s;
+  min-width: 0; /* Permite que el input se encoja si es necesario */
 }
 
 .tracking-form input:focus {
   outline: none;
   border-color: var(--color-secondary);
   box-shadow: 0 0 0 2px rgba(62, 189, 232, 0.2);
+}
+
+.tracking-form button {
+  /* Modificamos el ancho del botón para que no sea fijo */
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+.tracking-form button:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Media query para pantallas más pequeñas (ej. celulares) */
+@media (max-width: 600px) {
+  .tracking-form {
+    flex-direction: column; /* Apilamos el input y el botón verticalmente */
+  }
+
+  .tracking-form button {
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+  }
+
+  .tracking-form input {
+    margin-bottom: 10px; /* Espacio entre el input y el botón */
+  }
 }
 
 /* ============ SERVICES SECTION ============ */
