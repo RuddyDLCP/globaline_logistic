@@ -660,187 +660,195 @@ nav ul li a:hover::after {
   box-shadow: 0 5px 15px rgba(62, 189, 232, 0.3);
 }
 
-/* ============ MVV SECTION ============ */
-.mvv-premium {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #f8fcff, #e6f4f9);
-  position: relative;
-  overflow: hidden;
+  /* ============ MVV SECTION ============ */
+  .mvv-premium {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8fcff, #e6f4f9);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mvv-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;
+    opacity: 0.03;
+    z-index: 0;
+  }
+
+  .mvv-premium-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mvv-premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .mvv-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    padding: 30px 25px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    z-index: 1;
+    height: 380px; /* Altura fija para todos los cards */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mvv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-ornament {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(92, 225, 230, 0.1), rgba(62, 189, 232, 0.2));
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: -1;
+  }
+
+  .card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+  }
+
+  .mission-card .card-icon {
+    background: linear-gradient(135deg, #5CE1E6, #3EBDE8);
+    box-shadow: 0 10px 20px rgba(92, 225, 230, 0.3);
+  }
+
+  .vision-card .card-icon {
+    background: linear-gradient(135deg, #0b3056, #1c5b8f);
+    box-shadow: 0 10px 20px rgba(11, 48, 86, 0.3);
+  }
+
+  .values-card .card-icon {
+    width: 60px; /* Aseguramos un ancho y alto igual para el círculo */
+    height: 60px;
+    background: linear-gradient(135deg, #519F44, #3e7e35);
+    box-shadow: 0 10px 20px rgba(81, 159, 68, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
 }
 
-.mvv-premium::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;
-  opacity: 0.03;
-  z-index: 0;
-}
-
-.mvv-premium-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.mvv-premium-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.mvv-card {
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-  padding: 30px 25px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  z-index: 1;
-  height: 380px; /* Altura fija para todos los cards */
-  display: flex;
-  flex-direction: column;
-}
-
-.mvv-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.card-ornament {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(135deg, rgba(92, 225, 230, 0.1), rgba(62, 189, 232, 0.2));
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  z-index: -1;
-}
-
-.card-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: white;
-}
-
-.mission-card .card-icon {
-  background: linear-gradient(135deg, #5CE1E6, #3EBDE8);
-  box-shadow: 0 10px 20px rgba(92, 225, 230, 0.3);
-}
-
-.vision-card .card-icon {
-  background: linear-gradient(135deg, #0b3056, #1c5b8f);
-  box-shadow: 0 10px 20px rgba(11, 48, 86, 0.3);
-}
-
-.values-card .card-icon {
-  background: linear-gradient(135deg, #519F44, #3e7e35);
-  box-shadow: 0 10px 20px rgba(81, 159, 68, 0.3);
-}
-
-.mvv-card h3 {
-  font-size: 22px;
-  color: #0b3056;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.card-text p {
-  color: #555;
-  line-height: 1.7;
-  font-size: 15px;
-  margin-bottom: 0;
-}
-
-.card-text strong {
-  color: #0b3056;
-  font-weight: 600;
-}
-
-/* Ajuste para decoración de misión */
-.mission-decoration {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.mission-svg {
-  width: 150px;
-  height: 60px;
-}
-
-/* Ajuste para decoración de visión */
-.vision-decoration {
-  position: absolute;
-  bottom: 30px;
-  left: 25px;
-  right: 25px;
-}
-
-.vision-line {
-  height: 2px;
-  background: linear-gradient(to right, rgba(11, 48, 86, 0.1), rgba(11, 48, 86, 0.2), rgba(11, 48, 86, 0.1));
-}
 .values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Modificación aquí */
-  gap: 12px;
-  margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Reducimos el ancho mínimo para que quepan más */
+    gap: 10px; /* Reducimos un poco el espacio entre los elementos */
+    margin-top: 15px;
 }
 
 .value-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Reducimos el padding para más espacio */
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgba(81, 159, 68, 0.05);
+    transition: background-color 0.3s ease;
 }
 
 .value-item:hover {
-  background-color: rgba(81, 159, 68, 0.05);
-  transform: translateX(5px);
+    background-color: rgba(81, 159, 68, 0.15);
 }
 
 .value-icon {
-  width: 28px;
-  height: 28px;
-  background-color: rgba(81, 159, 68, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  color: #519F44;
+    width: 30px; /* Reducimos el tamaño de los iconos internos */
+    height: 30px;
+    background-color: rgba(81, 159, 68, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Reducimos el tamaño de los iconos internos */
+    color: #519F44;
+    margin-bottom: 5px; /* Reducimos el margen inferior */
 }
 
 .value-item span {
-  font-size: 13px;
-  font-weight: 500;
-  color: #555;
+    font-size: 12px; /* Reducimos el tamaño del texto */
+    font-weight: 500;
+    color: #555;
+    display: block;
+}
+
+/* Ajuste para el grid en pantallas pequeñas */
+@media (max-width: 768px) {
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Reducimos aún más el ancho mínimo en móviles */
+        gap: 8px; /* Reducimos el espacio en móviles */
+    }
+
+    .value-item {
+        padding: 8px; /* Reducimos el padding en móviles */
+    }
+
+    .value-icon {
+        width: 25px; /* Reducimos los iconos en móviles */
+        height: 25px;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    .value-item span {
+        font-size: 10px; /* Reducimos el texto en móviles */
+    }
+}
+
+@media (max-width: 576px) {
+    .values-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+    }
+
+    .value-item {
+        padding: 10px; /* Restauramos un poco el padding en la vista de una columna */
+    }
+
+    .value-icon {
+        width: 30px; /* Restauramos un poco los iconos en la vista de una columna */
+        height: 30px;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .value-item span {
+        font-size: 12px; /* Restauramos un poco el texto en la vista de una columna */
+    }
 }
 
 /* ============ FAQ SECTION ============ */
