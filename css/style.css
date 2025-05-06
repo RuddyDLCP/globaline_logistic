@@ -804,11 +804,9 @@ nav ul li a:hover::after {
   height: 2px;
   background: linear-gradient(to right, rgba(11, 48, 86, 0.1), rgba(11, 48, 86, 0.2), rgba(11, 48, 86, 0.1));
 }
-
-/* Ajuste para valores */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Modificación aquí */
   gap: 12px;
   margin-top: 15px;
 }
