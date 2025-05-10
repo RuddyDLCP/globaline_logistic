@@ -68,47 +68,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     // Función para manejar un login exitoso
-    function handleSuccessfulLogin(userData) {
-        // Guardar datos del usuario y rol
-        localStorage.setItem('userEmail', userData.email);
-        localStorage.setItem('userName', userData.nombre);
-        localStorage.setItem('userRole', userData.role || 'CLIENT');
-        
-        // Guardar el token si existe
-        if (userData.token) {
-            localStorage.setItem('authToken', userData.token);
-        }
+  // Dentro de la función handleSuccessfulLogin
+function handleSuccessfulLogin(userData) {
+  // Guardar datos del usuario y rol
+  localStorage.setItem('userEmail', userData.email);
+  localStorage.setItem('userName', userData.nombre);
+  localStorage.setItem('userRole', userData.role || 'CLIENT');
+  
+  // Guardar el token si existe
+  if (userData.token) {
+    localStorage.setItem('authToken', userData.token);
+    console.log("Token guardado:", userData.token); // Para depuración
+  } else {
+    console.warn("No se recibió token del servidor"); // Para depuración
+  }
 
-        // Mostrar mensaje de éxito
-        showMessage('success', '¡Acceso concedido! Redirigiendo...');
+  // Mostrar mensaje de éxito
+  showMessage('success', '¡Acceso concedido! Redirigiendo...');
 
-        // Redirigir según el rol
-        setTimeout(() => {
-            const redirectPage = (userData.role === 'ADMIN' || userData.email === "admin@globaline.com") ?
-                '../html/Dashboard_admin.html' :
-                '../html/dashboard_client.html';
-            window.location.href = redirectPage;
-        }, 1500);
-    }
-
-    // Función para limpiar mensajes anteriores
-    function clearMessages() {
-        const messages = document.querySelectorAll('.error-message, .success-message');
-        messages.forEach(msg => msg.remove());
-    }
-
-    // Función para mostrar mensajes al usuario
-    function showMessage(type, text) {
-        const messageElement = document.createElement('div');
-        messageElement.className = `${type}-message`;
-        messageElement.textContent = text;
-
-        const formHeader = loginForm.querySelector('.login-header') || loginForm;
-        formHeader.after(messageElement);
-
-        setTimeout(() => {
-            messageElement.style.opacity = '0';
-            setTimeout(() => messageElement.remove(), 500);
-        }, 5000);
-    }
+  // Redirigir según el rol
+  setTimeout(() => {
+    const redirectPage = (userData.role === 'ADMIN' || userData.email === "admin@globaline.com") ?
+      '../html/Dashboard_admin.html' :
+      '../html/dashboard_client.html';
+    window.location.href = redirectPage;
+  }, 1500);
+}
 });
