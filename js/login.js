@@ -52,15 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Petición a la API
                 // En login.js
                         const response = await fetch(`${API_BASE_URL}/auth/login`, {
-                method: 'POST',
-                mode: 'cors',
-                credentials: 'include', // Añade esta línea si necesitas enviar cookies
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(userData)
-            });
+                            method: 'POST',
+                            mode: 'cors',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(userData)
+                        });
 
                 console.log("Respuesta recibida:", response);
 
