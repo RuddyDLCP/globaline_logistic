@@ -49,13 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log("Datos a enviar:", JSON.stringify(userData));
                         const response = await fetch(`${API_BASE_URL}/auth/login`, {
-                            method: 'POST',
-                            mode: 'cors',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(userData)
-                        });
+  method: 'POST',
+  mode: 'cors',
+  credentials: 'include', // Add this if you need cookies to be sent
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(userData)
+});
 
                 console.log("Respuesta recibida:", response);
 
