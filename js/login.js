@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constantes para las credenciales de administrador (mantenidas para referencia)
-    const ADMIN_EMAIL = "admin@globaline.com";
-    const ADMIN_PASSWORD = "Xr9$Lk!27p#QzWd3@Fb6";
-    
-    // URL base de la API en Railway (reemplaza esto con tu URL de Railway)
-    const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app";
+    // Nota: Ya no necesitamos API_BASE_URL para las rutas que pasan por el proxy
     
     // Toggle password visibility
     const togglePassword = document.querySelector('.toggle-password');
@@ -48,46 +43,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 console.log("Datos a enviar:", JSON.stringify(userData));
-                        const response = await fetch(`${API_BASE_URL}/auth/login`, {
-  method: 'POST',
-  mode: 'cors',
-  credentials: 'include', // Add this if you need cookies to be sent
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(userData)
-});
-
-                console.log("Respuesta recibida:", response);
+                
+                // Petición usando el proxy de Netlify (/api -> tu backend)
+                const response = await fetch("/api/auth/login", {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json' 
+                    },
+                    credentials: 'include', // Importante para cookies/sesiones
+                    body: JSON.stringify(userData)
+                });
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    throw new Error(errorData.error || 'Error en la autenticación');
+                    throw new Error(errorData.message || 'Error en la autenticación');
                 }
 
-                // Procesar respuesta
                 const data = await response.json();
                 
-                // Guardar datos del usuario y rol
-                localStorage.setItem('userEmail', userData.email);
-                localStorage.setItem('userName', userData.nombre);
-                localStorage.setItem('userRole', data.role); // Usamos el rol devuelto por la API
-
-                // Mostrar mensaje de éxito
-                showMessage('success', '¡Acceso concedido! Redirigiendo...');
-
-                // Redirigir según el rol
-                setTimeout(() => {
-                    const redirectPage = data.role === 'ADMIN' ?
-                        '../html/Dashboard_admin.html' :
-                        '../html/dashboard_client.html';
-                    window.location.href = redirectPage;
-                }, 1500);
+                if (data && (data.role === 'ADMIN' || data.role === 'CLIENT')) {
+                    handleSuccessfulLogin({
+                        email: userData.email,
+                        nombre: userData.nombre,
+                        role: data.role
+                    });
+                } else {
+                    throw new Error('Error en la autenticación');
+                }
 
             } catch (error) {
                 console.error('Error completo:', error);
-                showMessage('error', error.message);
-            } finally {
+                showMessage('error', error.message || 'Error al iniciar sesión');
+                
                 // Restaurar el botón
                 if (submitButton) {
                     submitButton.disabled = false;
@@ -95,6 +82,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    }
+    
+    // Función para manejar un login exitoso
+    function handleSuccessfulLogin(userData) {
+        // Guardar datos del usuario y rol
+        localStorage.setItem('userEmail', userData.email);
+        localStorage.setItem('userName', userData.nombre);
+        localStorage.setItem('userRole', userData.role || 'CLIENT');
+
+        // Mostrar mensaje de éxito
+        showMessage('success', '¡Acceso concedido! Redirigiendo...');
+
+        // Redirigir según el rol
+        setTimeout(() => {
+            const redirectPage = (userData.role === 'ADMIN' || userData.email === "admin@globaline.com") ?
+                '../html/Dashboard_admin.html' :
+                '../html/dashboard_client.html';
+            window.location.href = redirectPage;
+        }, 1500);
     }
 
     // Función para limpiar mensajes anteriores
