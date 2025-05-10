@@ -48,15 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 console.log("Datos a enviar:", JSON.stringify(userData));
-
-                // Petición a la API
-                // En login.js
                         const response = await fetch(`${API_BASE_URL}/auth/login`, {
                             method: 'POST',
                             mode: 'cors',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'Accept': 'application/json'
                             },
                             body: JSON.stringify(userData)
                         });
