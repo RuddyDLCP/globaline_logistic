@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globaline Logistic - Seguimiento de Envío</title>
+    <link rel="stylesheet" href="../css/tracking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+          <a href="../index.html" class="logo-link">
+            <div class="logo">
+              <img src="../img/logo.jpeg" alt="Globaline Logistic Logo" loading="lazy">
+            </div>
+            <div class="logo-text">
+              Globaline <span>Logistic</span>
+            </div>
+          </a>
+          
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="../index.html#services">Servicios</a></li>
+              <li><a href="../index.html#about">Sobre Nosotros</a></li>
+              <li><a href="../index.html#mvv">Identidad</a></li>
+              <li><a href="../index.html#contact">Cotización</a></li>
+              <li><a href="../index.html#faq">Preguntas Frecuentes</a></li>
+            </ul>
+          </nav>
+          
+          <div class="header-buttons">
+            <a href="https://wa.me/18298261899" class="btn btn-outline-accent"><i class="fas fa-headset"></i> Atención</a>
+            <a href="login.html" class="btn btn-primary"><i class="fas fa-user"></i> Iniciar Sesión</a>
+          </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="tracking-main">
+        <div class="tracking-header">
+            <div class="container">
+                <h1>Seguimiento de Envío</h1>
+                <p id="tracking-number">Número de seguimiento: <span></span></p>
+                <div class="tracking-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">En tránsito</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tracking-content">
+                <!-- Map Section -->
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot vehicle"></span>
+                            <span>Vehículo de entrega</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot destination"></span>
+                            <span>Destino</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Progress -->
+                <div class="delivery-progress">
+                    <div class="progress-info">
+                        <div class="progress-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <div class="progress-text">
+                                <p class="label">Origen</p>
+                                <p class="value" id="origin-location">Santo Domingo Este</p>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="progress-text">
+                                <p class="label">Destino</p>
+                                <p class="value" id="destination-location">Santo Domingo Oeste, Pantoja</p>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="icon-circle">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="progress-text">
+                                <p class="label">Entrega estimada</p>
+                                <p class="value" id="estimated-delivery">Hoy, 2:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-label">
+                            <span>Progreso de entrega</span>
+                            <span id="progress-percentage">45%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipment Details -->
+                <div class="details-container">
+                    <div class="shipment-details">
+                        <h2><i class="fas fa-box"></i> Detalles del Envío</h2>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <p class="detail-label">Producto</p>
+                                <p class="detail-value" id="product-name">Paquete Empresarial</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="detail-label">Descripción</p>
+                                <p class="detail-value" id="product-description">Documentos y materiales de oficina</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="detail-label">Peso</p>
+                                <p class="detail-value" id="product-weight">2.5 kg</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="detail-label">Dimensiones</p>
+                                <p class="detail-value" id="product-dimensions">30 x 20 x 15 cm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="client-details">
+                        <h2><i class="fas fa-user"></i> Información del Cliente</h2>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <p class="detail-label">Empresa</p>
+                                <p class="detail-value" id="client-company">Corporación Empresarial XYZ</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="detail-label">Contacto</p>
+                                <p class="detail-value" id="client-contact">Juan Pérez</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="detail-label">Teléfono</p>
+                                <p class="detail-value" id="client-phone">(809) 555-6789</p>
+                            </div>
+                            <div class="detail-item">
+                                <p class="detail-label">Dirección de entrega</p>
+                                <p class="detail-value" id="client-address">Calle Principal #123, Zona Industrial</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tracking History -->
+                <div class="tracking-history">
+                    <h2>Historial de Seguimiento</h2>
+                    <div class="timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Pedido recibido</h3>
+                                <div class="timeline-details">
+                                    <p><i class="fas fa-map-marker-alt"></i> Centro de Procesamiento</p>
+                                    <p><i class="fas fa-clock"></i> Ayer, 10:15 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item completed">
+                            <div class="timeline-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>En preparación</h3>
+                                <div class="timeline-details">
+                                    <p><i class="fas fa-map-marker-alt"></i> Almacén Central</p>
+                                    <p><i class="fas fa-clock"></i> Ayer, 2:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item active">
+                            <div class="timeline-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>En tránsito</h3>
+                                <div class="timeline-details">
+                                    <p><i class="fas fa-map-marker-alt"></i> En ruta de entrega</p>
+                                    <p><i class="fas fa-clock"></i> Hoy, 9:45 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Entregando</h3>
+                                <div class="timeline-details">
+                                    <p><i class="fas fa-map-marker-alt"></i> Cerca del destino</p>
+                                    <p><i class="fas fa-clock"></i> Estimado: Hoy, 2:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Entregado</h3>
+                                <div class="timeline-details">
+                                    <p><i class="fas fa-map-marker-alt"></i> Destino final</p>
+                                    <p><i class="fas fa-clock"></i> Pendiente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer-premium">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#5CE1E6"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#519F44"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#0b3056"></path>
+            </svg>
+        </div>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p class="footer-copyright">© 2025 <strong>Globaline Logistic</strong>. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://wa.me/18298261899" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../js/tracking.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApo39WF14FZZIpOh1KNTfVsRfQiCp0kpM&callback=initMap" async defer></script>
+    <script>
+    // Handle mobile menu toggle
+    document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+        const navMenu = document.querySelector("nav");
+        const headerButtons = document.querySelector(".header-buttons");
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+                headerButtons.classList.toggle("active");
+            });
+        }
+    });
+    </script>
+</body>
+</html>

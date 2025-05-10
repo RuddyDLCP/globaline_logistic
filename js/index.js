@@ -270,22 +270,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   }
   
-  // Tracking form submission
-  const trackingForm = document.querySelector('.tracking-form');
-  if (trackingForm) {
-    trackingForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const trackingNumber = this.querySelector('input').value.trim();
-      
-      if (trackingNumber) {
-        // Here you would typically check the tracking number with your system
-        alert(`Buscando información para el número de seguimiento: ${trackingNumber}`);
-        this.reset();
-      } else {
-        alert('Por favor ingrese un número de seguimiento válido.');
-      }
-    });
-  }
+    // Tracking form submission - MODIFICADO PARA REDIRECCIONAR
+    // Tracking form submission - MODIFICADO PARA REDIRECCIONAR
+const trackingForm = document.querySelector('.tracking-form');
+if (trackingForm) {
+  trackingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const trackingNumber = this.querySelector('input').value.trim();
+    
+    if (trackingNumber) {
+      // Redireccionar a la página de seguimiento con el número como parámetro
+      window.location.href = `../html/tracking-page.html?tracking=${encodeURIComponent(trackingNumber)}`;
+    } else {
+      alert('Por favor ingrese un número de seguimiento válido.');
+    }
+  }); 
+  
+  // Registrar en consola que el script se ha inicializado correctamente
+  console.log('Script de seguimiento inicializado correctamente');
+}
   
   // Add animation to elements when they come into view
   const animateOnScroll = function() {
