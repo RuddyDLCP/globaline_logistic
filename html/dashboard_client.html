@@ -1,11 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Globaline Logistic - Catálogo de Productos</title>
+    <link rel="stylesheet" href="../css/dashboard_client.css">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-wrapper">
+                <img src="img/logo.ico" alt="Globaline Logistic Logo" class="logo-img">
+                <div class="logo-text">
+                    <span>Globaline</span>
+                    <span class="logo-accent">Logistic</span>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar productos...">
+                </div>
+            </div>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="user-name" id="userName">Usuario</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Mi Perfil</span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="html/login.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Cerrar Sesión</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-container">
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Categorías</h3>
+            </div>
+            <div class="sidebar-content">
+                <ul class="category-list" id="categoryList">
+                    <li class="category-item active" data-category="all">
+                        <i class="fas fa-border-all"></i>
+                        <span>Todos los productos</span>
+                        <span class="category-count" id="allCount">0</span>
+                    </li>
+                    <!-- Las categorías se cargarán dinámicamente -->
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <div class="company-info">
+                    <p>"Moviendo tu negocio globalmente"</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            <div class="content-header">
+                <h1>Catálogo de Productos</h1>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Productos</h3>
+                        <p id="totalProducts">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Unidades</h3>
+                        <p id="totalUnidades">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Categorías</h3>
+                        <p id="totalCategorias">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtros y ordenamiento -->
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="sortSelect">Ordenar por:</label>
+                    <select id="sortSelect" class="filter-select">
+                        <option value="nombre-asc">Nombre (A-Z)</option>
+                        <option value="nombre-desc">Nombre (Z-A)</option>
+                        <option value="fecha-desc">Más recientes</option>
+                        <option value="fecha-asc">Más antiguos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="statusFilter">Estado:</label>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="all">Todos</option>
+                        <option value="available">Disponibles</option>
+                        <option value="unavailable">No disponibles</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Contenedor de productos -->
+            <div class="products-container grid-view" id="productsContainer">
+                <!-- Los productos se cargarán dinámicamente -->
+                <div class="loading-container" id="loadingContainer">
+                    <div class="loading-spinner"></div>
+                    <p>Cargando productos...</p>
+                </div>
+            </div>
+
+            <!-- Estado vacío -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h2>No se encontraron productos</h2>
+                <p>No hay productos que coincidan con tu búsqueda o filtros.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de detalles del producto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalProductName">Nombre del Producto</h2>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="product-detail-container">
+                    <div class="product-detail-image">
+                        <div class="product-image-placeholder">
+                            <i class="fas fa-box"></i>
+                        </div>
+                    </div>
+                    <div class="product-detail-info">
+                        <div class="detail-row">
+                            <span class="detail-label">Código:</span>
+                            <span class="detail-value" id="modalProductCode">ABC123</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Categoría:</span>
+                            <span class="detail-value" id="modalProductCategory">Electrónicos</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Cliente:</span>
+                            <span class="detail-value" id="modalProductClient">Cliente A</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Cantidad:</span>
+                            <span class="detail-value" id="modalProductQuantity">10</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Ubicación:</span>
+                            <span class="detail-value" id="modalProductLocation">Almacén A</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Fecha de entrada:</span>
+                            <span class="detail-value" id="modalProductEntryDate">01/01/2023</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Estado:</span>
+                            <span class="detail-badge" id="modalProductStatus">Disponible</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-detail-description">
+                    <h3>Descripción</h3>
+                    <p id="modalProductDescription">Información detallada del producto.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeModalBtn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast para notificaciones -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/dashboard_client.js"></script>
 </body>
 </html>
