@@ -46,6 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inicializar la aplicación
   init()
 
+  // Función para obtener headers con autenticación
+  function getAuthHeaders() {
+    const token = localStorage.getItem("authToken")
+    const headers = {
+      "Content-Type": "application/json",
+    }
+
+    if (token) {
+      headers["Authorization"] = token
+    }
+
+    return headers
+  }
+
   // Función de inicialización
   function init() {
     // Cargar datos iniciales
@@ -117,7 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Funciones para cargar datos
   async function cargarEstadisticas() {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/productos/estadisticas`)
+      const response = await fetch(`${API_BASE_URL}/api/productos/estadisticas`, {
+        method: "GET",
+        credentials: "include",
+        headers: getAuthHeaders(),
+      })
+      
       if (!response.ok) throw new Error("Error al cargar estadísticas")
 
       const data = await response.json()
@@ -135,7 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function cargarProductos() {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/productos`)
+      const response = await fetch(`${API_BASE_URL}/api/productos`, {
+        method: "GET",
+        credentials: "include",
+        headers: getAuthHeaders(),
+      })
+      
       if (!response.ok) throw new Error("Error al cargar productos")
 
       productos = await response.json()
@@ -264,9 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const response = await fetch(`${API_BASE_URL}/api/productos?usuario=${encodeURIComponent(userName)}`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(productoData),
       })
 
@@ -308,9 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const response = await fetch(`${API_BASE_URL}/api/productos/${productoId}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(productoData),
       })
 
@@ -337,6 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const response = await fetch(`${API_BASE_URL}/api/productos/${productoId}`, {
         method: "DELETE",
+        headers: getAuthHeaders(),
       })
 
       if (!response.ok) {

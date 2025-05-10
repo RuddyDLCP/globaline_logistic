@@ -2,7 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Asegúrate de usar HTTPS
     //const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app";
     
-    // ... (código existente del toggle password)
+    // Toggle password visibility
+    const togglePassword = document.querySelector('.toggle-password');
+    if (togglePassword) {
+        togglePassword.addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    }
 
     const loginForm = document.querySelector('.login-form');
     if (loginForm) {
@@ -27,12 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 // Usando HTTPS explícitamente
-               const response = await fetch("/api/auth/login", {  // Usa ruta relativa
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
-    body: JSON.stringify(userData)
-});
+                const response = await fetch("/api/auth/login", {  // Usa ruta relativa
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify(userData)
+                });
 
                 if (!response.ok) {
                     const errorData = await response.json();
@@ -43,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 handleSuccessfulLogin({
                     email: userData.email,
                     nombre: userData.nombre,
-                    role: data.role || 'CLIENT'
+                    role: data.role || 'CLIENT',
+                    token: data.token
                 });
 
             } catch (error) {
@@ -62,6 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('userEmail', userData.email);
         localStorage.setItem('userName', userData.nombre);
         localStorage.setItem('userRole', userData.role || 'CLIENT');
+        
+        // Guardar el token si existe
+        if (userData.token) {
+            localStorage.setItem('authToken', userData.token);
+        }
 
         // Mostrar mensaje de éxito
         showMessage('success', '¡Acceso concedido! Redirigiendo...');
