@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constantes para las credenciales de administrador
+    // Constantes para las credenciales de administrador (mantenidas para referencia)
     const ADMIN_EMAIL = "admin@globaline.com";
     const ADMIN_PASSWORD = "Xr9$Lk!27p#QzWd3@Fb6";
     
     // URL base de la API en Railway (reemplaza esto con tu URL de Railway)
-    const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app"; // Actualiza esta URL con la de tu proyecto en Railway
+    const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app";
     
-    // Toggle password visibility (sin cambios)
+    // Toggle password visibility
     const togglePassword = document.querySelector('.toggle-password');
     const passwordInput = document.querySelector('#password');
 
@@ -42,15 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     password: document.getElementById('password').value
                 };
 
-                // Validación básica (opcional, ya que todos deben pasar)
+                // Validación básica
                 if (!userData.nombre || !userData.email || !userData.password) {
                     throw new Error('Todos los campos son obligatorios');
                 }
 
                 console.log("Datos a enviar:", JSON.stringify(userData));
 
-                // Petición a la API (usando la URL de Railway)
-                const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                // Petición a la API
+                 const response = await fetch(`${API_BASE_URL}`, {
+                //const response = await fetch(`${API_BASE_URL}/auth/login`, {
                     method: 'POST',
                     mode: 'cors',
                     headers: {
@@ -62,35 +63,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log("Respuesta recibida:", response);
 
-                // Manejar respuesta vacía o no JSON
-                let data;
-                try {
-                    const text = await response.text();
-                    data = text ? JSON.parse(text) : {};
-                } catch (parseError) {
-                    console.error("Error parsing JSON:", parseError);
-                    // No vamos a detener el flujo aquí, solo mostramos un error en consola
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Error en la autenticación');
                 }
 
-                // No necesitamos verificar response.ok aquí, ya que queremos que todos pasen inicialmente
-
-                // Determinar el rol basado en las credenciales
-                let role = 'CLIENT';
-                if (userData.email === ADMIN_EMAIL && userData.password === ADMIN_PASSWORD) {
-                    role = 'ADMIN';
-                }
-
-                // Guardar datos del usuario y rol (esto ya lo estás haciendo)
+                // Procesar respuesta
+                const data = await response.json();
+                
+                // Guardar datos del usuario y rol
                 localStorage.setItem('userEmail', userData.email);
                 localStorage.setItem('userName', userData.nombre);
-                localStorage.setItem('userRole', role); // Guardamos el rol determinado
+                localStorage.setItem('userRole', data.role); // Usamos el rol devuelto por la API
 
-                // Mostrar mensaje de éxito (podrías personalizarlo según el rol)
+                // Mostrar mensaje de éxito
                 showMessage('success', '¡Acceso concedido! Redirigiendo...');
 
                 // Redirigir según el rol
                 setTimeout(() => {
-                    const redirectPage = role === 'ADMIN' ?
+                    const redirectPage = data.role === 'ADMIN' ?
                         '../html/Dashboard_admin.html' :
                         '../html/dashboard_client.html';
                     window.location.href = redirectPage;
@@ -109,13 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Función para limpiar mensajes anteriores (sin cambios)
+    // Función para limpiar mensajes anteriores
     function clearMessages() {
         const messages = document.querySelectorAll('.error-message, .success-message');
         messages.forEach(msg => msg.remove());
     }
 
-    // Función para mostrar mensajes al usuario (sin cambios)
+    // Función para mostrar mensajes al usuario
     function showMessage(type, text) {
         const messageElement = document.createElement('div');
         messageElement.className = `${type}-message`;

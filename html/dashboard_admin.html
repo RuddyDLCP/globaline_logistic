@@ -1,301 +1,293 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogiStock - Sistema de Gestión de Inventario</title>
-    <link rel="stylesheet" href="../css/dashboard_admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LogiStock - Sistema de Gestión de Inventario</title>
+<link rel="stylesheet" href="../css/dashboard_admin.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-warehouse"></i>
-                <span>LogiStock</span>
+<header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <i class="fas fa-warehouse"></i>
+            <span>LogiStock</span>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#">Inventario</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="#" class="active">Inicio</a></li>
+        <li><a href="#">Inventario</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="#">Configuración</a></li>
+    </ul>
+</div>
+
+<main class="container">
+    <section class="dashboard-header">
+        <h1>Panel de Control de Inventario</h1>
+        <p class="subtitle">Gestiona tu inventario de manera eficiente y sencilla</p>
+    </section>
+
+    <section class="stats-container">
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Total Productos</h3>
+                <i class="fas fa-box"></i>
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#">Inventario</a></li>
-                    <li><a href="#">Reportes</a></li>
-                    <li><a href="#">Configuración</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+            <div class="stat-content">
+                <p class="stat-value" id="totalProducts">0</p>
+                <p class="stat-label">Productos en inventario</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Total Unidades</h3>
+                <i class="fas fa-cubes"></i>
+            </div>
+            <div class="stat-content">
+                <p class="stat-value" id="totalUnidades">0</p>
+                <p class="stat-label">Unidades en inventario</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Almacén</h3>
+                <i class="fas fa-warehouse"></i>
+            </div>
+            <div class="stat-content">
+                <p class="stat-value" id="totalAlmacen">0</p>
+                <p class="stat-label">Productos por categoría</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <h3>Clientes</h3>
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+                <p class="stat-value" id="clientes">0</p>
+                <p class="stat-label">Clientes registrados</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="inventory-section">
+        <div class="inventory-header">
+            <h2>Inventario</h2>
+            <button class="btn btn-primary" id="addProductBtn">
+                <i class="fas fa-plus"></i> Agregar Producto
             </button>
         </div>
-    </header>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#" class="active">Inicio</a></li>
-            <li><a href="#">Inventario</a></li>
-            <li><a href="#">Reportes</a></li>
-            <li><a href="#">Configuración</a></li>
-        </ul>
-    </div>
-
-    <main class="container">
-        <section class="dashboard-header">
-            <h1>Panel de Control de Inventario</h1>
-            <p class="subtitle">Gestiona tu inventario de manera eficiente y sencilla</p>
-        </section>
-
-        <section class="stats-container">
-            <div class="stat-card">
-                <div class="stat-header">
-                    <h3>Total Productos</h3>
-                    <i class="fas fa-box"></i>
-                </div>
-                <div class="stat-content">
-                    <p class="stat-value" id="totalProducts">0</p>
-                    <p class="stat-label">Productos en inventario</p>
-                </div>
+        <div class="inventory-filters">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
             </div>
-
-            <div class="stat-card">
-                <div class="stat-header">
-                    <h3>Valor Total</h3>
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="stat-content">
-                    <p class="stat-value" id="totalValue">$0.00</p>
-                    <p class="stat-label">Valor del inventario</p>
-                </div>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-header">
-                    <h3>Stock Bajo</h3>
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <div class="stat-content">
-                    <p class="stat-value" id="lowStock">0</p>
-                    <p class="stat-label">Productos con stock bajo</p>
-                </div>
-            </div>
-
-            <div class="stat-card">
-                <div class="stat-header">
-                    <h3>Categorías</h3>
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-                <div class="stat-content">
-                    <p class="stat-value" id="categories">0</p>
-                    <p class="stat-label">Categorías activas</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="inventory-section">
-            <div class="inventory-header">
-                <h2>Inventario</h2>
-                <button class="btn btn-primary" id="addProductBtn">
-                    <i class="fas fa-plus"></i> Agregar Producto
-                </button>
-            </div>
-
-            <div class="inventory-filters">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Buscar productos...">
-                </div>
-                <div class="category-filter">
-                    <select id="categoryFilter">
-                        <option value="all">Todas las categorías</option>
-                        <option value="electronics">Electrónicos</option>
-                        <option value="furniture">Muebles</option>
-                        <option value="clothing">Ropa</option>
-                        <option value="food">Alimentos</option>
-                        <option value="other">Otros</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="table-container">
-                <table class="inventory-table">
-                    <thead>
-                        <tr>
-                            <th data-sort="sku">SKU <i class="fas fa-sort"></i></th>
-                            <th data-sort="name">Nombre <i class="fas fa-sort"></i></th>
-                            <th>Categoría</th>
-                            <th data-sort="price" class="text-right">Precio <i class="fas fa-sort"></i></th>
-                            <th data-sort="quantity" class="text-right">Cantidad <i class="fas fa-sort"></i></th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inventoryTableBody">
-                        <!-- Los productos se cargarán dinámicamente aquí -->
-                    </tbody>
-                </table>
-                <div id="emptyState" class="empty-state">
-                    <p>No se encontraron productos.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Modal para agregar producto -->
-    <div class="modal" id="addProductModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Agregar Nuevo Producto</h2>
-                <button class="close-btn" id="closeAddModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="addProductForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="productName">Nombre</label>
-                            <input type="text" id="productName" name="name" required>
-                            <div class="error-message" id="nameError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="productSku">SKU</label>
-                            <input type="text" id="productSku" name="sku" required>
-                            <div class="error-message" id="skuError"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="productCategory">Categoría</label>
-                            <select id="productCategory" name="category" required>
-                                <option value="">Seleccionar categoría</option>
-                                <option value="electronics">Electrónicos</option>
-                                <option value="furniture">Muebles</option>
-                                <option value="clothing">Ropa</option>
-                                <option value="food">Alimentos</option>
-                                <option value="other">Otros</option>
-                            </select>
-                            <div class="error-message" id="categoryError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="productLocation">Ubicación</label>
-                            <input type="text" id="productLocation" name="location" placeholder="Pasillo A, Estante 3">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="productPrice">Precio ($)</label>
-                            <input type="number" id="productPrice" name="price" step="0.01" min="0" required>
-                            <div class="error-message" id="priceError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="productQuantity">Cantidad</label>
-                            <input type="number" id="productQuantity" name="quantity" min="0" required>
-                            <div class="error-message" id="quantityError"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="productDescription">Descripción</label>
-                        <textarea id="productDescription" name="description" rows="3"></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" id="cancelAddBtn">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar Producto</button>
-                    </div>
-                </form>
+            <div class="category-filter">
+                <select id="categoryFilter">
+                    <option value="all">Todas las categorías</option>
+                    <option value="electronics">Electrónicos</option>
+                    <option value="furniture">Muebles</option>
+                    <option value="clothing">Ropa</option>
+                    <option value="food">Alimentos</option>
+                    <option value="other">Otros</option>
+                </select>
             </div>
         </div>
-    </div>
 
-    <!-- Modal para editar producto -->
-    <div class="modal" id="editProductModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Editar Producto</h2>
-                <button class="close-btn" id="closeEditModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="editProductForm">
-                    <input type="hidden" id="editProductId">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="editProductName">Nombre</label>
-                            <input type="text" id="editProductName" name="name" required>
-                            <div class="error-message" id="editNameError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="editProductSku">SKU</label>
-                            <input type="text" id="editProductSku" name="sku" required>
-                            <div class="error-message" id="editSkuError"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="editProductCategory">Categoría</label>
-                            <select id="editProductCategory" name="category" required>
-                                <option value="">Seleccionar categoría</option>
-                                <option value="electronics">Electrónicos</option>
-                                <option value="furniture">Muebles</option>
-                                <option value="clothing">Ropa</option>
-                                <option value="food">Alimentos</option>
-                                <option value="other">Otros</option>
-                            </select>
-                            <div class="error-message" id="editCategoryError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="editProductLocation">Ubicación</label>
-                            <input type="text" id="editProductLocation" name="location" placeholder="Pasillo A, Estante 3">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="editProductPrice">Precio ($)</label>
-                            <input type="number" id="editProductPrice" name="price" step="0.01" min="0" required>
-                            <div class="error-message" id="editPriceError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="editProductQuantity">Cantidad</label>
-                            <input type="number" id="editProductQuantity" name="quantity" min="0" required>
-                            <div class="error-message" id="editQuantityError"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="editProductDescription">Descripción</label>
-                        <textarea id="editProductDescription" name="description" rows="3"></textarea>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline" id="cancelEditBtn">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Actualizar Producto</button>
-                    </div>
-                </form>
+        <div class="table-container">
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th data-sort="codigo">Código <i class="fas fa-sort"></i></th>
+                        <th data-sort="nombre">Nombre <i class="fas fa-sort"></i></th>
+                        <th>Categoría</th>
+                        <th>Cliente</th>
+                        <th data-sort="cantidad" class="text-right">Cantidad <i class="fas fa-sort"></i></th>
+                        <th>Fecha Entrada</th>
+                        <th>Fecha Salida</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTableBody">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </tbody>
+            </table>
+            <div id="emptyState" class="empty-state">
+                <p>No se encontraron productos.</p>
             </div>
         </div>
-    </div>
+    </section>
+</main>
 
-    <!-- Modal de confirmación para eliminar -->
-    <div class="modal" id="deleteProductModal">
-        <div class="modal-content delete-modal">
-            <div class="modal-header">
-                <h2>¿Estás seguro?</h2>
-                <button class="close-btn" id="closeDeleteModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p id="deleteConfirmMessage">Esta acción eliminará permanentemente el producto del inventario. Esta acción no se puede deshacer.</p>
-                <input type="hidden" id="deleteProductId">
+<!-- Modal para agregar producto -->
+<div class="modal" id="addProductModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Agregar Nuevo Producto</h2>
+            <button class="close-btn" id="closeAddModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="addProductForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Nombre</label>
+                        <input type="text" id="productName" name="name" required>
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productSku">Código</label>
+                        <input type="text" id="productSku" name="sku" required>
+                        <div class="error-message" id="skuError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoría</label>
+                        <select id="productCategory" name="category" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="electronics">Electrónicos</option>
+                            <option value="furniture">Muebles</option>
+                            <option value="clothing">Ropa</option>
+                            <option value="food">Alimentos</option>
+                            <option value="other">Otros</option>
+                        </select>
+                        <div class="error-message" id="categoryError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productClient">Cliente</label>
+                        <input type="text" id="productClient" name="client" required>
+                        <div class="error-message" id="clientError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productLocation">Ubicación</label>
+                        <input type="text" id="productLocation" name="location" placeholder="Pasillo A, Estante 3">
+                    </div>
+                    <div class="form-group">
+                        <label for="productQuantity">Cantidad</label>
+                        <input type="number" id="productQuantity" name="quantity" min="0" required>
+                        <div class="error-message" id="quantityError"></div>
+                    </div>
+                </div>
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline" id="cancelDeleteBtn">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+                    <button type="button" class="btn btn-outline" id="cancelAddBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para editar producto -->
+<div class="modal" id="editProductModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Editar Producto</h2>
+            <button class="close-btn" id="closeEditModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="editProductForm">
+                <input type="hidden" id="editProductId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editProductName">Nombre</label>
+                        <input type="text" id="editProductName" name="name" required>
+                        <div class="error-message" id="editNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editProductSku">Código</label>
+                        <input type="text" id="editProductSku" name="sku" required>
+                        <div class="error-message" id="editSkuError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editProductCategory">Categoría</label>
+                        <select id="editProductCategory" name="category" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="electronics">Electrónicos</option>
+                            <option value="furniture">Muebles</option>
+                            <option value="clothing">Ropa</option>
+                            <option value="food">Alimentos</option>
+                            <option value="other">Otros</option>
+                        </select>
+                        <div class="error-message" id="editCategoryError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editProductClient">Cliente</label>
+                        <input type="text" id="editProductClient" name="client" required>
+                        <div class="error-message" id="editClientError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editProductLocation">Ubicación</label>
+                        <input type="text" id="editProductLocation" name="location" placeholder="Pasillo A, Estante 3">
+                    </div>
+                    <div class="form-group">
+                        <label for="editProductQuantity">Cantidad</label>
+                        <input type="number" id="editProductQuantity" name="quantity" min="0" required>
+                        <div class="error-message" id="editQuantityError"></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancelEditBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación para eliminar -->
+<div class="modal" id="deleteProductModal">
+    <div class="modal-content delete-modal">
+        <div class="modal-header">
+            <h2>¿Estás seguro?</h2>
+            <button class="close-btn" id="closeDeleteModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p id="deleteConfirmMessage">Esta acción eliminará permanentemente el producto del inventario. Esta acción no se puede deshacer.</p>
+            <input type="hidden" id="deleteProductId">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="cancelDeleteBtn">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Toast para notificaciones -->
-    <div class="toast-container" id="toastContainer"></div>
+<!-- Toast para notificaciones -->
+<div class="toast-container" id="toastContainer"></div>
 
-    <script src="../js/dashboard_admin.js"></script>
+<script src="../js/dashboard_admin.js"></script>
 </body>
 </html>
