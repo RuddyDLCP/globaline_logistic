@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Verificar si el usuario está autenticado y es administrador
   const userRole = localStorage.getItem("userRole")
   const userName = localStorage.getItem("userName")
+  const authToken = localStorage.getItem("authToken")
+
+  console.log("Token de autenticación:", authToken) // Para depuración
 
   if (!userRole || userRole !== "ADMIN") {
     // Redirigir a login si no es administrador
@@ -55,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (token) {
       headers["Authorization"] = token
+      console.log("Enviando token:", token) // Para depuración
+    } else {
+      console.warn("No se encontró token de autenticación") // Para depuración
     }
 
     return headers
@@ -292,10 +298,15 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(productoData),
       })
 
-      const data = await response.json()
-
       if (!response.ok) {
-        throw new Error(data.error || "Error al crear el producto")
+        throw new Error(`Error al crear el producto: ${response.status} ${response.statusText}`)
+      }
+
+      let data
+      try {
+        data = await response.json()
+      } catch (e) {
+        console.warn("No se pudo parsear la respuesta como JSON, pero la operación fue exitosa")
       }
 
       // Cerrar modal y actualizar datos
@@ -334,10 +345,15 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(productoData),
       })
 
-      const data = await response.json()
-
       if (!response.ok) {
-        throw new Error(data.error || "Error al actualizar el producto")
+        throw new Error(`Error al actualizar el producto: ${response.status} ${response.statusText}`)
+      }
+
+      let data
+      try {
+        data = await response.json()
+      } catch (e) {
+        console.warn("No se pudo parsear la respuesta como JSON, pero la operación fue exitosa")
       }
 
       // Cerrar modal y actualizar datos
@@ -361,8 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
       if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.error || "Error al eliminar el producto")
+        throw new Error(`Error al eliminar el producto: ${response.status} ${response.statusText}`)
       }
 
       // Cerrar modal y actualizar datos
