@@ -3,9 +3,4 @@
   to = "https://globalinelogisticapi-production.up.railway.app/:splat"
   status = 200
   force = true
-  headers = { 
-    Access-Control-Allow-Origin = "*", 
-    Access-Control-Allow-Headers = "Authorization, Content-Type, X-Requested-With",
-    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS",
-    Access-Control-Expose-Headers = "Authorization"
-  }
+  headers = { Access-Control-Allow-Origin = "*" }
