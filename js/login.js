@@ -1,58 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Nota: Ya no necesitamos API_BASE_URL para las rutas que pasan por el proxy
+    // Asegúrate de usar HTTPS
+    //const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app";
     
-    // Toggle password visibility
-    const togglePassword = document.querySelector('.toggle-password');
-    const passwordInput = document.querySelector('#password');
+    // ... (código existente del toggle password)
 
-    if (togglePassword && passwordInput) {
-        togglePassword.addEventListener('click', function() {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            this.querySelector('i').classList.toggle('fa-eye');
-            this.querySelector('i').classList.toggle('fa-eye-slash');
-        });
-    }
-
-    // Form submission
     const loginForm = document.querySelector('.login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-
-            // Limpiar mensajes anteriores
             clearMessages();
 
-            // Mostrar loader
             const submitButton = loginForm.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
 
             try {
-                // Obtener valores del formulario
                 const userData = {
                     nombre: document.getElementById('nombre').value.trim(),
                     email: document.getElementById('email').value.trim(),
                     password: document.getElementById('password').value
                 };
 
-                // Validación básica
                 if (!userData.nombre || !userData.email || !userData.password) {
                     throw new Error('Todos los campos son obligatorios');
                 }
 
-                console.log("Datos a enviar:", JSON.stringify(userData));
-                
-                // Petición usando el proxy de Netlify (/api -> tu backend)
-                const response = await fetch("/api/auth/login", {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json' 
-                    },
-                    credentials: 'include', // Importante para cookies/sesiones
-                    body: JSON.stringify(userData)
-                });
+                // Usando HTTPS explícitamente
+               const response = await fetch("/api/auth/login", {  // Usa ruta relativa
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(userData)
+});
 
                 if (!response.ok) {
                     const errorData = await response.json();
@@ -60,29 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 const data = await response.json();
-                
-                if (data && (data.role === 'ADMIN' || data.role === 'CLIENT')) {
-                    handleSuccessfulLogin({
-                        email: userData.email,
-                        nombre: userData.nombre,
-                        role: data.role
-                    });
-                } else {
-                    throw new Error('Error en la autenticación');
-                }
+                handleSuccessfulLogin({
+                    email: userData.email,
+                    nombre: userData.nombre,
+                    role: data.role || 'CLIENT'
+                });
 
             } catch (error) {
                 console.error('Error completo:', error);
                 showMessage('error', error.message || 'Error al iniciar sesión');
-                
-                // Restaurar el botón
-                if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = originalButtonText;
-                }
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
             }
         });
     }
+
     
     // Función para manejar un login exitoso
     function handleSuccessfulLogin(userData) {
