@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Obtener el botón de cambio de tema
   const themeToggle = document.getElementById("themeToggle")
-  if (!themeToggle) return
 
   // Verificar si hay un tema guardado en localStorage
   const savedTheme = localStorage.getItem("theme")

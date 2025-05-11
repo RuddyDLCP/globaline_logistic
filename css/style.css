@@ -1317,9 +1317,8 @@ nav ul li a:hover::after {
 }
 
 .textarea-icon {
-  top: 38px;
+  top: 15px;
 }
-
 
 .form-group input:focus,
 .form-group select:focus,
