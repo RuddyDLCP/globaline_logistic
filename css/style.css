@@ -74,60 +74,6 @@ body {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Iconos sociales */
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-  background-color: #519f44;
-  transform: translateY(-3px);
-}
-
-/* Encabezados de sección */
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-header h2 {
-  font-size: 36px;
-  color: #0b3056;
-  margin-bottom: 15px;
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
-}
-
-.section-header h2::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #5ce1e6, #3ebde8);
-  border-radius: 2px;
-}
-
-.section-subtitle {
-  font-size: 18px;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
 /* ============ HEADER ============ */
 header {
   background-color: var(--color-white);
@@ -238,20 +184,6 @@ nav ul li a:hover::after {
   min-width: max-content;
 }
 
-.mobile-header-buttons {
-  display: none;
-}
-
-.mobile-btn {
-  font-size: 14px;
-  padding: 8px 12px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
 .mobile-menu-toggle {
   display: none;
   background: none;
@@ -274,6 +206,17 @@ nav ul li a:hover::after {
   display: none;
 }
 
+/* Nuevos estilos para los botones en el menú de navegación */
+.nav-header-buttons {
+  display: none;
+}
+
+.nav-btn {
+  font-size: 14px;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
 /* Responsive Header */
 @media (max-width: 992px) {
   .header-container {
@@ -292,12 +235,6 @@ nav ul li a:hover::after {
     order: 1;
     flex: 1;
     justify-content: center;
-  }
-
-  .mobile-header-buttons {
-    display: flex;
-    order: 2;
-    gap: 10px;
   }
 
   .header-buttons {
@@ -329,6 +266,12 @@ nav ul li a:hover::after {
     align-items: center;
     padding: 15px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-header-buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 15px;
   }
 
   .nav-close-btn {
@@ -381,16 +324,16 @@ nav ul li a:hover::after {
 }
 
 @media (max-width: 576px) {
-  .mobile-header-buttons {
+  .nav-header-buttons {
     gap: 8px;
   }
 
-  .mobile-btn {
+  .nav-btn {
     padding: 6px 10px;
     font-size: 12px;
   }
 
-  .mobile-btn i {
+  .nav-btn i {
     margin-right: 4px;
   }
 
