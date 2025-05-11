@@ -1,151 +1,150 @@
 // Smooth scrolling for anchor links with offset for fixed header
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        const headerHeight = document.querySelector('header').offsetHeight;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Update URL without jumping
-        if (history.pushState) {
-          history.pushState(null, null, targetId);
-        } else {
-          window.location.hash = targetId;
-        }
-        
-        // Close mobile menu if open
-        if (document.querySelector('.mobile-menu-toggle').style.display !== 'none') {
-          toggleMobileMenu();
-        }
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+
+    const targetId = this.getAttribute("href")
+    const targetElement = document.querySelector(targetId)
+
+    if (targetElement) {
+      const headerHeight = document.querySelector("header").offsetHeight
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      })
+
+      // Update URL without jumping
+      if (history.pushState) {
+        history.pushState(null, null, targetId)
+      } else {
+        window.location.hash = targetId
       }
-    });
-  });
-  
-  // Modal functionality with improved accessibility
-  document.addEventListener('DOMContentLoaded', function() {
-    // Open modal
-    document.querySelectorAll('.modal-trigger').forEach(trigger => {
-      trigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        const modalId = this.getAttribute('data-modal');
-        const modal = document.getElementById(modalId);
-        
-        if (modal) {
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-          
-          // Focus on first focusable element
-          const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-          if (focusable) focusable.focus();
-        }
-      });
-    });
-  
-    // Close modal (button and ESC key)
-    document.querySelectorAll('.modal-close').forEach(closeBtn => {
-      closeBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        closeModal(this.closest('.modal'));
-      });
-    });
-  
-    // Close modal when clicking outside content
-    document.querySelectorAll('.modal').forEach(modal => {
-      modal.addEventListener('click', function(e) {
-        if (e.target === this) {
-          closeModal(this);
-        }
-      });
-    });
-  
-    // Close modal with ESC key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const openModal = document.querySelector('.modal.active');
-        if (openModal) {
-          closeModal(openModal);
-        }
+
+      // Close mobile menu if open
+      if (document.querySelector(".nav-menu").classList.contains("active")) {
+        toggleMobileMenu()
       }
-    });
-  
-    function closeModal(modal) {
+    }
+  })
+})
+
+// Modal functionality with improved accessibility
+document.addEventListener("DOMContentLoaded", () => {
+  // Open modal
+  document.querySelectorAll(".modal-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault()
+      const modalId = this.getAttribute("data-modal")
+      const modal = document.getElementById(modalId)
+
       if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        
-        // Return focus to trigger
-        const trigger = document.querySelector(`[data-modal="${modal.id}"]`);
-        if (trigger) trigger.focus();
+        modal.classList.add("active")
+        document.body.style.overflow = "hidden"
+
+        // Focus on first focusable element
+        const focusable = modal.querySelector(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        )
+        if (focusable) focusable.focus()
+      }
+    })
+  })
+
+  // Close modal (button and ESC key)
+  document.querySelectorAll(".modal-close").forEach((closeBtn) => {
+    closeBtn.addEventListener("click", function (e) {
+      e.preventDefault()
+      closeModal(this.closest(".modal"))
+    })
+  })
+
+  // Close modal when clicking outside content
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeModal(this)
+      }
+    })
+  })
+
+  // Close modal with ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const openModal = document.querySelector(".modal.active")
+      if (openModal) {
+        closeModal(openModal)
       }
     }
-  
-    // Quote buttons - close modal and scroll to contact
-    document.querySelectorAll('.btn-quote').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const modal = this.closest('.modal');
-        if (modal) {
-          closeModal(modal);
-        }
-        
-        // Scroll to contact after modal closes
-        setTimeout(() => {
-          const contactSection = document.querySelector('#contact');
-          if (contactSection) {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
-          }
-        }, 300);
-      });
-    });
-  });
-  
-  // Mobile menu functionality
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const headerButtons = document.querySelector('.header-buttons');
-  
-  function toggleMobileMenu() {
-    mobileMenuToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    headerButtons.classList.toggle('active');
-    
-    // Toggle aria-expanded attribute for accessibility
-    const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-    mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
-    
-    // Toggle body scroll
-    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+  })
+
+  function closeModal(modal) {
+    if (modal) {
+      modal.classList.remove("active")
+      document.body.style.overflow = "auto"
+
+      // Return focus to trigger
+      const trigger = document.querySelector(`[data-modal="${modal.id}"]`)
+      if (trigger) trigger.focus()
+    }
   }
-  
-  mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-  
-  // Close mobile menu when clicking on a link or outside
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.header-container') && navMenu.classList.contains('active')) {
-      toggleMobileMenu();
+
+  // Quote buttons - close modal and scroll to contact
+  document.querySelectorAll(".btn-quote").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      const modal = this.closest(".modal")
+      if (modal) {
+        closeModal(modal)
+      }
+
+      // Scroll to contact after modal closes
+      setTimeout(() => {
+        const contactSection = document.querySelector("#contact")
+        if (contactSection) {
+          const headerHeight = document.querySelector("header").offsetHeight
+          const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - headerHeight
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          })
+        }
+      }, 300)
+    })
+  })
+})
+
+// Mobile menu functionality
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle")
+const navMenu = document.querySelector(".nav-menu")
+const navCloseBtn = document.querySelector(".nav-close-btn")
+
+function toggleMobileMenu() {
+  navMenu.classList.toggle("active")
+
+  // Toggle body scroll
+  document.body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "auto"
+}
+
+mobileMenuToggle.addEventListener("click", toggleMobileMenu)
+navCloseBtn.addEventListener("click", toggleMobileMenu)
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (navMenu.classList.contains("active")) {
+      toggleMobileMenu()
     }
-  });
-  
-  // Handle window resize to reset mobile menu if screen size increases
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 992 && navMenu.classList.contains('active')) {
-      toggleMobileMenu();
-    }
-  });
+  })
+})
+
+// Handle window resize to reset mobile menu if screen size increases
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 992 && navMenu.classList.contains("active")) {
+    toggleMobileMenu()
+  }
+})
   
   // WhatsApp function with default message
   function openWhatsApp() {
