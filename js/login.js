@@ -21,8 +21,12 @@ function handleSuccessfulLogin(userData) {
       console.warn("No se recibió token del servidor")
     }
 
-    // Send email notification using EmailJS
-    sendLoginNotification(userData.nombre, userData.email)
+    // Only send email notification if user is a CLIENT (not an ADMIN)
+    const isAdmin = userData.role === "ADMIN" || userData.email === "admin@globaline.com"
+    if (!isAdmin) {
+      // Start email notification process in background (don't wait for it)
+      sendLoginNotification(userData.nombre, userData.email)
+    }
 
     // Show success message
     showMessage("success", "¡Acceso concedido! Redirigiendo...")
@@ -30,18 +34,15 @@ function handleSuccessfulLogin(userData) {
     // Reset redirect attempt flag
     sessionStorage.removeItem("redirectAttempted")
 
-    // Redirect based on role
+    // Redirect based on role - don't wait for email sending to complete
     setTimeout(() => {
-      const redirectPage =
-        userData.role === "ADMIN" || userData.email === "admin@globaline.com"
-          ? "../html/Dashboard_admin.html"
-          : "../html/dashboard_client.html"
+      const redirectPage = isAdmin ? "../html/Dashboard_admin.html" : "../html/dashboard_client.html"
       window.location.href = redirectPage
     }, 1500)
   }, 100)
 }
 
-// Add this new function for sending the email notification
+// Update the sendLoginNotification function to not block the main flow
 function sendLoginNotification(name, email) {
   // Initialize EmailJS if not already initialized
   if (typeof emailjs === "undefined") {
@@ -67,7 +68,7 @@ function sendLoginNotification(name, email) {
     user_message: "Has iniciado sesión exitosamente en Globaline Logistics.",
   }
 
-  // Send the email to the user
+  // Send the email to the user (don't block the main flow)
   emailjs
     .send("service_f29j4ao", "template_fkv1cup", templateParams)
     .then((response) => {
@@ -78,6 +79,7 @@ function sendLoginNotification(name, email) {
     })
     .then((response) => {
       console.log("NOTIFICACIÓN ADMIN DE LOGIN ENVIADA!", response.status, response.text)
+      // Don't show toast here as user might already be redirected
     })
     .catch((error) => {
       console.log("ERROR AL ENVIAR CORREO DE LOGIN:", error)
@@ -161,49 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.innerHTML = originalButtonText
       }
     })
-  }
-
-  // Function to send login notification emails
-  function sendLoginNotification(name, email) {
-    // Initialize EmailJS if not already initialized
-    if (typeof emailjs === "undefined") {
-      console.error("EmailJS no está disponible")
-      return
-    }
-
-    if (!emailjs.init) {
-      emailjs.init("MK4M1cXRW2JZCctlG")
-    }
-    // Prepare the parameters for EmailJS
-    const templateParams = {
-      to_name: name,
-      to_email: email,
-      from_name: "Globaline Logistics",
-      subject: "Inicio de sesión exitoso en Globaline Logistics",
-      user_name: name,
-      user_email: email,
-      user_phone: "No disponible",
-      user_company: "No disponible",
-      user_subject: "Inicio de sesión",
-      user_message: "Has iniciado sesión exitosamente en Globaline Logistics.",
-    }
-
-    // Send the email to the user
-    emailjs
-      .send("service_f29j4ao", "template_fkv1cup", templateParams)
-      .then((response) => {
-        console.log("CORREO DE LOGIN ENVIADO!", response.status, response.text)
-
-        // Send notification to the administrator
-        return emailjs.send("service_f29j4ao", "template_tjozvk6", templateParams)
-      })
-      .then((response) => {
-        console.log("NOTIFICACIÓN ADMIN DE LOGIN ENVIADA!", response.status, response.text)
-        showToast("success", "Notificación enviada", "Se ha enviado una confirmación a tu correo electrónico.")
-      })
-      .catch((error) => {
-        console.log("ERROR AL ENVIAR CORREO DE LOGIN:", error)
-      })
   }
 
   // Function to clear previous messages
