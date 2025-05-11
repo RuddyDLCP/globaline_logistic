@@ -1,5 +1,100 @@
-// Enhanced login handler to fix authentication issues
+// Enhanced successful login handler
+function handleSuccessfulLogin(userData) {
+  // Clear previous auth data first
+  localStorage.removeItem("userEmail")
+  localStorage.removeItem("userName")
+  localStorage.removeItem("userRole")
+  localStorage.removeItem("authToken")
+
+  // Add a small delay before setting new values
+  setTimeout(() => {
+    // Save user data and role
+    localStorage.setItem("userEmail", userData.email)
+    localStorage.setItem("userName", userData.nombre)
+    localStorage.setItem("userRole", userData.role || "CLIENT")
+
+    // Save token if it exists
+    if (userData.token) {
+      localStorage.setItem("authToken", userData.token)
+      console.log("Token guardado:", userData.token)
+    } else {
+      console.warn("No se recibió token del servidor")
+    }
+
+    // Send email notification using EmailJS
+    sendLoginNotification(userData.nombre, userData.email)
+
+    // Show success message
+    showMessage("success", "¡Acceso concedido! Redirigiendo...")
+
+    // Reset redirect attempt flag
+    sessionStorage.removeItem("redirectAttempted")
+
+    // Redirect based on role
+    setTimeout(() => {
+      const redirectPage =
+        userData.role === "ADMIN" || userData.email === "admin@globaline.com"
+          ? "../html/Dashboard_admin.html"
+          : "../html/dashboard_client.html"
+      window.location.href = redirectPage
+    }, 1500)
+  }, 100)
+}
+
+// Add this new function for sending the email notification
+function sendLoginNotification(name, email) {
+  // Initialize EmailJS if not already initialized
+  if (typeof emailjs === "undefined") {
+    console.error("EmailJS no está disponible")
+    return
+  }
+
+  if (!emailjs.init) {
+    emailjs.init("MK4M1cXRW2JZCctlG")
+  }
+
+  // Prepare the parameters for EmailJS
+  const templateParams = {
+    to_name: name,
+    to_email: email,
+    from_name: "Globaline Logistics",
+    subject: "Inicio de sesión exitoso en Globaline Logistics",
+    user_name: name,
+    user_email: email,
+    user_phone: "No disponible",
+    user_company: "No disponible",
+    user_subject: "Inicio de sesión",
+    user_message: "Has iniciado sesión exitosamente en Globaline Logistics.",
+  }
+
+  // Send the email to the user
+  emailjs
+    .send("service_f29j4ao", "template_fkv1cup", templateParams)
+    .then((response) => {
+      console.log("CORREO DE LOGIN ENVIADO!", response.status, response.text)
+
+      // Send notification to the administrator
+      return emailjs.send("service_f29j4ao", "template_tjozvk6", templateParams)
+    })
+    .then((response) => {
+      console.log("NOTIFICACIÓN ADMIN DE LOGIN ENVIADA!", response.status, response.text)
+    })
+    .catch((error) => {
+      console.log("ERROR AL ENVIAR CORREO DE LOGIN:", error)
+    })
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize EmailJS
+  emailjs.init("MK4M1cXRW2JZCctlG")
+
+  // Create toast container if it doesn't exist
+  if (!document.querySelector(".toast-container")) {
+    const toastContainer = document.createElement("div")
+    toastContainer.className = "toast-container"
+    document.body.appendChild(toastContainer)
+  }
+
   // Toggle password visibility
   const togglePassword = document.querySelector(".toggle-password")
   if (togglePassword) {
@@ -68,44 +163,47 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Enhanced successful login handler
-  function handleSuccessfulLogin(userData) {
-    // Clear previous auth data first
-    localStorage.removeItem("userEmail")
-    localStorage.removeItem("userName")
-    localStorage.removeItem("userRole")
-    localStorage.removeItem("authToken")
+  // Function to send login notification emails
+  function sendLoginNotification(name, email) {
+    // Initialize EmailJS if not already initialized
+    if (typeof emailjs === "undefined") {
+      console.error("EmailJS no está disponible")
+      return
+    }
 
-    // Add a small delay before setting new values
-    setTimeout(() => {
-      // Save user data and role
-      localStorage.setItem("userEmail", userData.email)
-      localStorage.setItem("userName", userData.nombre)
-      localStorage.setItem("userRole", userData.role || "CLIENT")
+    if (!emailjs.init) {
+      emailjs.init("MK4M1cXRW2JZCctlG")
+    }
+    // Prepare the parameters for EmailJS
+    const templateParams = {
+      to_name: name,
+      to_email: email,
+      from_name: "Globaline Logistics",
+      subject: "Inicio de sesión exitoso en Globaline Logistics",
+      user_name: name,
+      user_email: email,
+      user_phone: "No disponible",
+      user_company: "No disponible",
+      user_subject: "Inicio de sesión",
+      user_message: "Has iniciado sesión exitosamente en Globaline Logistics.",
+    }
 
-      // Save token if it exists
-      if (userData.token) {
-        localStorage.setItem("authToken", userData.token)
-        console.log("Token guardado:", userData.token)
-      } else {
-        console.warn("No se recibió token del servidor")
-      }
+    // Send the email to the user
+    emailjs
+      .send("service_f29j4ao", "template_fkv1cup", templateParams)
+      .then((response) => {
+        console.log("CORREO DE LOGIN ENVIADO!", response.status, response.text)
 
-      // Show success message
-      showMessage("success", "¡Acceso concedido! Redirigiendo...")
-
-      // Reset redirect attempt flag
-      sessionStorage.removeItem("redirectAttempted")
-
-      // Redirect based on role
-      setTimeout(() => {
-        const redirectPage =
-          userData.role === "ADMIN" || userData.email === "admin@globaline.com"
-            ? "../html/Dashboard_admin.html"
-            : "../html/dashboard_client.html"
-        window.location.href = redirectPage
-      }, 1500)
-    }, 100)
+        // Send notification to the administrator
+        return emailjs.send("service_f29j4ao", "template_tjozvk6", templateParams)
+      })
+      .then((response) => {
+        console.log("NOTIFICACIÓN ADMIN DE LOGIN ENVIADA!", response.status, response.text)
+        showToast("success", "Notificación enviada", "Se ha enviado una confirmación a tu correo electrónico.")
+      })
+      .catch((error) => {
+        console.log("ERROR AL ENVIAR CORREO DE LOGIN:", error)
+      })
   }
 
   // Function to clear previous messages
@@ -126,6 +224,73 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       messageElement.style.opacity = "0"
       setTimeout(() => messageElement.remove(), 500)
+    }, 5000)
+  }
+
+  // Function to show toast messages
+  function showToast(type, title, message) {
+    const toastContainer = document.querySelector(".toast-container")
+
+    // Create the toast element
+    const toast = document.createElement("div")
+    toast.className = `toast toast-${type}`
+
+    // Determine the icon based on type
+    let icon = ""
+    switch (type) {
+      case "success":
+        icon = "fa-check-circle"
+        break
+      case "error":
+        icon = "fa-exclamation-circle"
+        break
+      case "info":
+        icon = "fa-info-circle"
+        break
+      default:
+        icon = "fa-bell"
+    }
+
+    // Toast structure
+    toast.innerHTML = `
+    <div class="toast-icon">
+      <i class="fas ${icon}"></i>
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">${title}</div>
+      <div class="toast-message">${message}</div>
+    </div>
+    <button class="toast-close" aria-label="Cerrar">
+      <i class="fas fa-times"></i>
+    </button>
+  `
+
+    // Add the toast to the container
+    toastContainer.appendChild(toast)
+
+    // Set up the close button
+    const closeBtn = toast.querySelector(".toast-close")
+    closeBtn.addEventListener("click", () => {
+      toast.style.opacity = "0"
+      toast.style.transform = "translateY(-10px)"
+
+      setTimeout(() => {
+        toast.remove()
+      }, 300)
+    })
+
+    // Auto-close after 5 seconds
+    setTimeout(() => {
+      if (toast.parentNode) {
+        toast.style.opacity = "0"
+        toast.style.transform = "translateY(-10px)"
+
+        setTimeout(() => {
+          if (toast.parentNode) {
+            toast.remove()
+          }
+        }, 300)
+      }
     }, 5000)
   }
 })
