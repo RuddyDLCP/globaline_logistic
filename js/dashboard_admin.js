@@ -1,5 +1,16 @@
 // Enhanced admin dashboard authentication check
 document.addEventListener("DOMContentLoaded", () => {
+  // Verificar si hay un tema guardado en localStorage
+  const savedTheme = localStorage.getItem("theme")
+
+  // Aplicar el tema guardado o el tema por defecto (claro)
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme")
+    const themeToggle = document.getElementById("themeToggle")
+    if (themeToggle) {
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>'
+    }
+  }
   // Verify if the user is authenticated and is an administrator
   const userRole = localStorage.getItem("userRole")
   const userName = localStorage.getItem("userName")
