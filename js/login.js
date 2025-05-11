@@ -1,7 +1,5 @@
 // Enhanced login handler to fix authentication issues
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicializar EmailJS - asegúrate de que esta línea esté presente
-  emailjs.init("MK4M1cXRW2JZCctlG");
   // Toggle password visibility
   const togglePassword = document.querySelector(".toggle-password")
   if (togglePassword) {
@@ -13,13 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
       this.querySelector("i").classList.toggle("fa-eye-slash")
     })
   }
-  
-  
 
-  const loginForm = document.querySelector(".login-form");
+  const loginForm = document.querySelector(".login-form")
   if (loginForm) {
     loginForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
+      e.preventDefault()
       clearMessages()
 
       const submitButton = loginForm.querySelector('button[type="submit"]')
@@ -32,13 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
           nombre: document.getElementById("nombre").value.trim(),
           email: document.getElementById("email").value.trim(),
           password: document.getElementById("password").value,
-        };
-
-        // Verificar si es un cliente (no administrador) antes de enviar el correo
-        if (userData.email !== "admin@globaline.com") {
-          // Solo enviar correo si NO es el administrador
-          sendWelcomeEmail(userData);
         }
+
         if (!userData.nombre || !userData.email || !userData.password) {
           throw new Error("Todos los campos son obligatorios")
         }
@@ -75,28 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.innerHTML = originalButtonText
       }
     })
-  }
-
-  // Función para enviar correo de bienvenida/promoción SOLO a clientes
-  function sendWelcomeEmail(userData) {
-    const templateParams = {
-      to_name: userData.nombre,
-      to_email: userData.email,
-      from_name: "Globaline Logistics",
-      subject: "Bienvenido a Globaline Logistics - Ofertas Especiales",
-      user_name: userData.nombre,
-      // Puedes añadir más parámetros según necesites para tu plantilla
-      current_date: new Date().toLocaleDateString()
-    };
-
-    // Enviar correo al usuario
-    emailjs.send("service_f29j4ao", "template_fkv1cup", templateParams)
-      .then((response) => {
-        console.log("CORREO DE BIENVENIDA ENVIADO!", response.status, response.text);
-      })
-      .catch((error) => {
-        console.error("Error al enviar correo de bienvenida:", error);
-      });
   }
 
   // Enhanced successful login handler
@@ -145,8 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     messages.forEach((msg) => msg.remove())
   }
 
-  
-
   // Function to show messages to the user
   function showMessage(type, text) {
     const messageElement = document.createElement("div")
@@ -161,6 +128,4 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => messageElement.remove(), 500)
     }, 5000)
   }
-
-  
 })
