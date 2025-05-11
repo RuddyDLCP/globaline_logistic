@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function initializeDashboard() {
     // Your existing dashboard initialization code
     console.log("Dashboard initialized successfully")
-    
+
     // URL base de la API
     const API_BASE_URL = "https://globalinelogisticapi-production.up.railway.app"
 
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
           credentials: "include",
           headers: getAuthHeaders(),
         })
-        
+
         if (!response.ok) throw new Error("Error al cargar estadísticas")
 
         const data = await response.json()
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
           credentials: "include",
           headers: getAuthHeaders(),
         })
-        
+
         if (!response.ok) throw new Error("Error al cargar productos")
 
         productos = await response.json()
@@ -372,59 +372,101 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function handleAddProduct(e) {
-  e.preventDefault();
+      e.preventDefault()
 
-  // Validar formulario
-  if (!validateForm(addProductForm)) return;
+      // Validar formulario
+      if (!validateForm(addProductForm)) return
 
-  try {
-    const formData = new FormData(addProductForm);
-    
-    // Crear fecha de entrada (ahora)
-    const fechaEntrada = new Date();
-    
-    // Crear fecha de salida (2 horas después)
-    const fechaSalida = new Date(fechaEntrada);
-    fechaSalida.setHours(fechaSalida.getHours() + 2);
-    
-    const productoData = {
-      nombre: formData.get("name"),
-      codigo: formData.get("sku"),
-      cliente: formData.get("client"),
-      categoria: formData.get("category"),
-      ubicacion: formData.get("location"),
-      cantidad: Number.parseInt(formData.get("quantity")),
-      fechaEntrada: fechaEntrada.toISOString(),
-      fechaSalida: fechaSalida.toISOString() // Añadir fecha de salida automática
-    };
+      try {
+        const formData = new FormData(addProductForm)
 
-    const response = await fetch(`${API_BASE_URL}/api/productos?usuario=${encodeURIComponent(userName)}`, {
-      method: "POST",
-      headers: getAuthHeaders(),
-      body: JSON.stringify(productoData),
-    });
+        // Crear fecha de entrada (ahora)
+        const fechaEntrada = new Date()
 
-    if (!response.ok) {
-      throw new Error(`Error al crear el producto: ${response.status} ${response.statusText}`);
+        // Crear fecha de salida (2 horas después)
+        const fechaSalida = new Date(fechaEntrada)
+        fechaSalida.setHours(fechaSalida.getHours() + 2)
+
+        const productoData = {
+          nombre: formData.get("name"),
+          codigo: formData.get("sku"),
+          cliente: formData.get("client"),
+          categoria: formData.get("category"),
+          ubicacion: formData.get("location"),
+          cantidad: Number.parseInt(formData.get("quantity")),
+          fechaEntrada: fechaEntrada.toISOString(),
+          fechaSalida: fechaSalida.toISOString(), // Añadir fecha de salida automática
+        }
+
+        const response = await fetch(`${API_BASE_URL}/api/productos?usuario=${encodeURIComponent(userName)}`, {
+          method: "POST",
+          headers: getAuthHeaders(),
+          body: JSON.stringify(productoData),
+        })
+
+        if (!response.ok) {
+          throw new Error(`Error al crear el producto: ${response.status} ${response.statusText}`)
+        }
+
+        let data
+        try {
+          data = await response.json()
+        } catch (e) {
+          console.warn("No se pudo parsear la respuesta como JSON, pero la operación fue exitosa")
+        }
+
+        // Cerrar modal y actualizar datos
+        closeModal(addProductModal)
+        cargarEstadisticas()
+        cargarProductos()
+        mostrarToast("success", "Éxito", "Producto agregado correctamente con fecha de salida en 2 horas")
+      } catch (error) {
+        console.error("Error al agregar producto:", error)
+        mostrarToast("error", "Error", error.message)
+      }
     }
 
-    let data;
-    try {
-      data = await response.json();
-    } catch (e) {
-      console.warn("No se pudo parsear la respuesta como JSON, pero la operación fue exitosa");
-    }
+    // Definir la función handleEditProduct que faltaba
+    async function handleEditProduct(e) {
+      e.preventDefault()
 
-    // Cerrar modal y actualizar datos
-    closeModal(addProductModal);
-    cargarEstadisticas();
-    cargarProductos();
-    mostrarToast("success", "Éxito", "Producto agregado correctamente con fecha de salida en 2 horas");
-  } catch (error) {
-    console.error("Error al agregar producto:", error);
-    mostrarToast("error", "Error", error.message);
-  }
-}
+      // Validar formulario
+      if (!validateForm(editProductForm)) return
+
+      try {
+        const formData = new FormData(editProductForm)
+        const productoId = formData.get("id")
+
+        const productoData = {
+          id: productoId,
+          nombre: formData.get("name"),
+          codigo: formData.get("sku"),
+          cliente: formData.get("client"),
+          categoria: formData.get("category"),
+          ubicacion: formData.get("location"),
+          cantidad: Number.parseInt(formData.get("quantity")),
+        }
+
+        const response = await fetch(`${API_BASE_URL}/api/productos/${productoId}`, {
+          method: "PUT",
+          headers: getAuthHeaders(),
+          body: JSON.stringify(productoData),
+        })
+
+        if (!response.ok) {
+          throw new Error(`Error al actualizar el producto: ${response.status} ${response.statusText}`)
+        }
+
+        // Cerrar modal y actualizar datos
+        closeModal(editProductModal)
+        cargarEstadisticas()
+        cargarProductos()
+        mostrarToast("success", "Éxito", "Producto actualizado correctamente")
+      } catch (error) {
+        console.error("Error al editar producto:", error)
+        mostrarToast("error", "Error", error.message)
+      }
+    }
 
     async function handleDeleteProduct() {
       try {

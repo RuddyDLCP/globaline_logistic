@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cerrar menú de usuario al hacer clic fuera
     document.addEventListener("click", (e) => {
-      if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+      if (userMenuBtn && userDropdown && !userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
         userDropdown.classList.remove("show")
       }
     })
@@ -200,6 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para renderizar categorías
   function renderizarCategorias() {
+    if (!categoryList) return
+
     // Mantener "Todos los productos" como primera opción
     const allItem = categoryList.querySelector('[data-category="all"]')
     if (allItem) {
@@ -319,6 +321,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para renderizar productos
   function renderizarProductos() {
+    if (!productsContainer) return
+
     productsContainer.innerHTML = ""
 
     if (filteredProducts.length === 0) {
@@ -397,6 +401,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para mostrar detalles del producto
   function mostrarDetallesProducto(producto) {
+    if (!productModal) return
+
     // Determinar el estado del producto
     const isAvailable = producto.cantidad > 0
     const statusClass = isAvailable ? "available" : "unavailable"
@@ -456,6 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Funciones para manejar eventos
   function toggleUserMenu() {
+    if (!userDropdown) return
     userDropdown.classList.toggle("show")
   }
 
@@ -505,7 +512,9 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.toggle("active", button.dataset.view === view)
     })
 
-    productsContainer.className = `products-container ${view}-view`
+    if (productsContainer) {
+      productsContainer.className = `products-container ${view}-view`
+    }
   }
 
   // Funciones de utilidad
