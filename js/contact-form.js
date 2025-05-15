@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const subject = contactForm.querySelector("#subject").value
         const message = contactForm.querySelector("#message").value
 
-        // Preparar los parámetros para EmailJS
-        const templateParams = {
+        // Preparar los parámetros para EmailJS - Correo al cliente
+        const clientParams = {
           to_name: name,
-          to_email: email,
+          to_email: email, // Correo del cliente
           from_name: "Globaline Logistics",
           subject: "Gracias por contactar a Globaline Logistics",
           user_name: name,
@@ -71,14 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
           user_message: message,
         }
 
+        // Preparar los parámetros para EmailJS - Notificación al administrador
+        const adminParams = {
+          to_name: "Administrador",
+          to_email: "rubel.021@hotmail.com", // Tu correo fijo para notificaciones
+          from_name: "Sistema Globaline",
+          subject: "Nuevo mensaje de contacto",
+          user_name: name,
+          user_email: email,
+          user_phone: phone,
+          user_company: company,
+          user_subject: subject,
+          user_message: message,
+        }
+
         // Enviar el correo electrónico al usuario
         emailjs
-          .send("service_f29j4ao", "template_fkv1cup", templateParams)
+          .send("service_f29j4ao", "template_fkv1cup", clientParams)
           .then((response) => {
-            console.log("CORREO AL USUARIO ENVIADO!", response.status, response.text)
+            console.log("CORREO AL CLIENTE ENVIADO!", response.status, response.text)
 
             // Enviar notificación al administrador (a ti)
-            return emailjs.send("service_f29j4ao", "template_tjozvk6", templateParams)
+            return emailjs.send("service_f29j4ao", "template_tjozvk6", adminParams)
           })
           .then((response) => {
             console.log("NOTIFICACIÓN ADMIN ENVIADA!", response.status, response.text)
